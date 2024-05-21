@@ -29,7 +29,7 @@ public class InitialPanel extends JPanel {
         layeredPane = new JLayeredPane();
         layeredPane.setBounds(0, 0, 800, 600);
 
-        ImageIcon startBg = new ImageIcon("src/images/str_bg.jpeg");
+        ImageIcon startBg = new ImageIcon("FinalProject/src/images/str_bg.jpeg");
         Image img = startBg.getImage();
         Image scaledImg = img.getScaledInstance(800, 600, Image.SCALE_SMOOTH);
         startBg = new ImageIcon(scaledImg);
@@ -38,7 +38,7 @@ public class InitialPanel extends JPanel {
         startLabel.setBounds(0, 0, 800, 600);
         startLabel.setVisible(true);
 
-        ImageIcon introducebuttIcon = new ImageIcon("src/images/introduce.png");
+        ImageIcon introducebuttIcon = new ImageIcon("FinalProject/src/images/introduce.png");
         Image intro_butt_img = introducebuttIcon.getImage();
         Image intro_scaledImg = intro_butt_img.getScaledInstance(100, 50, Image.SCALE_SMOOTH);
         introducebuttIcon = new ImageIcon(intro_scaledImg);
@@ -50,7 +50,7 @@ public class InitialPanel extends JPanel {
         introButton.setContentAreaFilled(false);
         introButton.setVisible(true);
 
-        ImageIcon selectbuttIcon = new ImageIcon("src/images/select.png");
+        ImageIcon selectbuttIcon = new ImageIcon("FinalProject/src/images/select.png");
         Image select_butt_img = selectbuttIcon.getImage();
         Image select_scaledImg = select_butt_img.getScaledInstance(100, 50, Image.SCALE_SMOOTH);
         selectbuttIcon = new ImageIcon(select_scaledImg);
@@ -63,7 +63,7 @@ public class InitialPanel extends JPanel {
         selectButton.setVisible(true);
         selectButton.addActionListener(e -> selectButtonActionPerformed());
 
-        ImageIcon changebuttIcon = new ImageIcon("src/images/change.png");
+        ImageIcon changebuttIcon = new ImageIcon("FinalProject/src/images/change.png");
         Image change_butt_img = changebuttIcon.getImage();
         Image change_scaledImg = change_butt_img.getScaledInstance(100, 50, Image.SCALE_SMOOTH);
         changebuttIcon = new ImageIcon(change_scaledImg);
@@ -76,7 +76,7 @@ public class InitialPanel extends JPanel {
         changeButton.setVisible(false);
         changeButton.addActionListener(e -> changePlayerActionPerformed());
 
-        ImageIcon ensurebuttIcon = new ImageIcon("src/images/check.png");
+        ImageIcon ensurebuttIcon = new ImageIcon("FinalProject/src/images/check.png");
         Image ensure_butt_img = ensurebuttIcon.getImage();
         Image ensure_scaledImg = ensure_butt_img.getScaledInstance(100, 50, Image.SCALE_SMOOTH);
         ensurebuttIcon = new ImageIcon(ensure_scaledImg);
@@ -89,7 +89,7 @@ public class InitialPanel extends JPanel {
         ensureButton.setVisible(false);
         ensureButton.addActionListener(e -> ensureButtonActionPerformed());
 
-        ImageIcon startbuttIcon = new ImageIcon("src/images/start-button.png");
+        ImageIcon startbuttIcon = new ImageIcon("FinalProject/src/images/start-button.png");
         Image start_butt_img = startbuttIcon.getImage();
         Image start_scaledImg = start_butt_img.getScaledInstance(100, 50, Image.SCALE_SMOOTH);
         startbuttIcon = new ImageIcon(start_scaledImg);
@@ -102,7 +102,7 @@ public class InitialPanel extends JPanel {
         startButton.setVisible(true);
         startButton.addActionListener(e -> startButtonActionPerformed());
 
-        playerIcon = new ImageIcon("src/images/character1.png");
+        playerIcon = new ImageIcon("FinalProject/src/images/character1.png");
         Image player_img = playerIcon.getImage();
         Image player_scaledImg = player_img.getScaledInstance(200, 100, Image.SCALE_SMOOTH);
         playerIcon = new ImageIcon(player_scaledImg);
