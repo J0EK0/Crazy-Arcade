@@ -35,16 +35,16 @@ public class GamePanel extends JPanel {
         // Initialize the map with tiles
         tiles = new Tile[10][10];
         String[][] map = {
-            {"src/images/blue_house.png", "src/images/blue_house.png", "src/images/blue_house.png", "src/images/blue_house.png", "src/images/blue_house.png", "src/images/blue_house.png", "src/images/blue_house.png", "src/images/blue_house.png", "src/images/blue_house.png", "src/images/blue_house.png"},
-            {"src/images/blue_house.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/blue_house.png"},
-            {"src/images/blue_house.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/blue_house.png"},
-            {"src/images/blue_house.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/blue_house.png"},
-            {"src/images/blue_house.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/blue_house.png"},
-            {"src/images/blue_house.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/blue_house.png"},
-            {"src/images/blue_house.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/blue_house.png"},
-            {"src/images/blue_house.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/blue_house.png"},
-            {"src/images/blue_house.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/blue_house.png"},
-            {"src/images/blue_house.png", "src/images/blue_house.png", "src/images/blue_house.png", "src/images/blue_house.png", "src/images/blue_house.png", "src/images/blue_house.png", "src/images/blue_house.png", "src/images/blue_house.png", "src/images/blue_house.png", "src/images/blue_house.png"}
+            {"FinalProject/src/images/blue_house.png", "FinalProject/src/images/blue_house.png", "FinalProject/src/images/blue_house.png", "FinalProject/src/images/blue_house.png", "FinalProject/src/images/blue_house.png", "FinalProject/src/images/blue_house.png", "FinalProject/src/images/blue_house.png", "FinalProject/src/images/blue_house.png", "FinalProject/src/images/blue_house.png", "FinalProject/src/images/blue_house.png"},
+            {"FinalProject/src/images/blue_house.png", "FinalProject/src/images/green_tile.png", "FinalProject/src/images/green_tile.png", "FinalProject/src/images/green_tile.png", "FinalProject/src/images/green_tile.png", "FinalProject/src/images/green_tile.png", "FinalProject/src/images/green_tile.png", "FinalProject/src/images/green_tile.png", "FinalProject/src/images/green_tile.png", "FinalProject/src/images/blue_house.png"},
+            {"FinalProject/src/images/blue_house.png", "FinalProject/src/images/green_tile.png", "FinalProject/src/images/green_tile.png", "FinalProject/src/images/green_tile.png", "FinalProject/src/images/green_tile.png", "FinalProject/src/images/green_tile.png", "FinalProject/src/images/green_tile.png", "FinalProject/src/images/green_tile.png", "FinalProject/src/images/green_tile.png", "FinalProject/src/images/blue_house.png"},
+            {"FinalProject/src/images/blue_house.png", "FinalProject/src/images/green_tile.png", "FinalProject/src/images/green_tile.png", "FinalProject/src/images/green_tile.png", "FinalProject/src/images/green_tile.png", "FinalProject/src/images/green_tile.png", "FinalProject/src/images/green_tile.png", "FinalProject/src/images/green_tile.png", "FinalProject/src/images/green_tile.png", "FinalProject/src/images/blue_house.png"},
+            {"FinalProject/src/images/blue_house.png", "FinalProject/src/images/green_tile.png", "FinalProject/src/images/green_tile.png", "FinalProject/src/images/green_tile.png", "FinalProject/src/images/green_tile.png", "FinalProject/src/images/green_tile.png", "FinalProject/src/images/green_tile.png", "FinalProject/src/images/green_tile.png", "FinalProject/src/images/green_tile.png", "FinalProject/src/images/blue_house.png"},
+            {"FinalProject/src/images/blue_house.png", "FinalProject/src/images/green_tile.png", "FinalProject/src/images/green_tile.png", "FinalProject/src/images/green_tile.png", "FinalProject/src/images/green_tile.png", "FinalProject/src/images/green_tile.png", "FinalProject/src/images/green_tile.png", "FinalProject/src/images/green_tile.png", "FinalProject/src/images/green_tile.png", "FinalProject/src/images/blue_house.png"},
+            {"FinalProject/src/images/blue_house.png", "FinalProject/src/images/green_tile.png", "FinalProject/src/images/green_tile.png", "FinalProject/src/images/green_tile.png", "FinalProject/src/images/green_tile.png", "FinalProject/src/images/green_tile.png", "FinalProject/src/images/green_tile.png", "FinalProject/src/images/green_tile.png", "FinalProject/src/images/green_tile.png", "FinalProject/src/images/blue_house.png"},
+            {"FinalProject/src/images/blue_house.png", "FinalProject/src/images/green_tile.png", "FinalProject/src/images/green_tile.png", "FinalProject/src/images/green_tile.png", "FinalProject/src/images/green_tile.png", "FinalProject/src/images/green_tile.png", "FinalProject/src/images/green_tile.png", "FinalProject/src/images/green_tile.png", "FinalProject/src/images/green_tile.png", "FinalProject/src/images/blue_house.png"},
+            {"FinalProject/src/images/blue_house.png", "FinalProject/src/images/green_tile.png", "FinalProject/src/images/green_tile.png", "FinalProject/src/images/green_tile.png", "FinalProject/src/images/green_tile.png", "FinalProject/src/images/green_tile.png", "FinalProject/src/images/green_tile.png", "FinalProject/src/images/green_tile.png", "FinalProject/src/images/green_tile.png", "FinalProject/src/images/blue_house.png"},
+            {"FinalProject/src/images/blue_house.png", "FinalProject/src/images/blue_house.png", "FinalProject/src/images/blue_house.png", "FinalProject/src/images/blue_house.png", "FinalProject/src/images/blue_house.png", "FinalProject/src/images/blue_house.png", "FinalProject/src/images/blue_house.png", "FinalProject/src/images/blue_house.png", "FinalProject/src/images/blue_house.png", "FinalProject/src/images/blue_house.png"}
         };
 
         for (int row = 0; row < 10; row++) {
@@ -82,7 +82,7 @@ public class GamePanel extends JPanel {
 
     private void initializePlayer() {
         int playerIndex = 1; // This should be set based on your game's logic
-        String playerImagePath = "src/images/character" + playerIndex + ".png";
+        String playerImagePath = "FianlProject/src/images/character" + playerIndex + ".png";
         ImageIcon playerIcon = new ImageIcon(playerImagePath);
         Image playerImg = playerIcon.getImage();
         Image scaledImg = playerImg.getScaledInstance(TILE_SIZE, TILE_SIZE, Image.SCALE_SMOOTH);
@@ -108,7 +108,7 @@ public class GamePanel extends JPanel {
     }
 
     private JLabel createBoxLabel() {
-        String boxImagePath = "src/images/box.png";
+        String boxImagePath = "FianlProject/src/images/box.png";
         ImageIcon boxIcon = new ImageIcon(boxImagePath);
         Image boxImg = boxIcon.getImage();
         Image scaledImg = boxImg.getScaledInstance(TILE_SIZE, TILE_SIZE, Image.SCALE_SMOOTH);
