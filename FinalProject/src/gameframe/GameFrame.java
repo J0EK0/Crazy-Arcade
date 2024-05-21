@@ -12,7 +12,7 @@ public class GameFrame extends JFrame {
         setSize(800, 600);
         init();
     }
-
+    
     private void init(){
         this.setTitle("PaoPaoTang");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

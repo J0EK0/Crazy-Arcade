@@ -6,7 +6,7 @@ public class Character extends SuperObject{
     public ImageIcon img;
     public Character(int x, int y, int width, int height) {
         super(x, y, width, height);
-        this.img = new ImageIcon("../../image/character1.png");
+        this.img = new ImageIcon("FinalProject/src/image/character1.png");
 
     }
 }
