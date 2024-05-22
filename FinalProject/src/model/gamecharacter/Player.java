@@ -13,4 +13,14 @@ public class Player extends Character{
         this.img = img;
     }
 
+    //public static Player creatPlayer(){return new Player}
+
+    //collision Detect
+
+    public void plantBubble(){
+
+    }
+
+    //move
+
 }

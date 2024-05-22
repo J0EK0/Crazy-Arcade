@@ -8,6 +8,8 @@ public class Character extends SuperObject{
     protected boolean dead;
     protected int speed; 
     protected int bubbleNum;
+
+    protected int healthPoint;
     
 
     public Character(int x, int y, int width, int height) {
