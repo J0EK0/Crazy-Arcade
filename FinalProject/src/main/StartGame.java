@@ -9,5 +9,10 @@ public class StartGame {
     public static void main(String[] args) {
         ObjectController oc = new ObjectController();
         gameFrame = new GameFrame();
+        gameFrame.setVisible(true);
+    }
+
+    public static void startgame(){
+
     }
 }

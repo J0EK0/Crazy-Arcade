@@ -5,7 +5,10 @@ import java.util.List;
 import javax.swing.*;
 import resourceloader.Resourceloader;
 public class GameFrame extends JFrame {
-    
+    private JPanel contentPane;
+    private GamePanel gamePanel;
+    private InitialPanel startPanel;
+    private OverPanel overPanel;
     public GameFrame() {
         init();
     }
@@ -18,14 +21,14 @@ public class GameFrame extends JFrame {
         this.setResizable(false);
         this.setLocationRelativeTo(null);        //将窗口设置于屏幕中央
         CardLayout cardLayout = new CardLayout();
-        //this.contentPane = new JPanel();
-        //this.setContentPane(contentPane);
-        //this.contentPane.setLayout(cardLayout);
-        //this.startPanel = new StartPanel();
-        //this.contentPane.add("start",startPanel);
-        //this.overPanel = new OverPanel();
-        //this.contentPane.add("over", overPanel);
-        //((CardLayout)this.contentPane.getLayout()).show(contentPane,"start");
+        this.contentPane = new JPanel();
+        this.setContentPane(contentPane);
+        this.contentPane.setLayout(cardLayout);
+        this.startPanel = new InitialPanel();
+        this.contentPane.add("start",startPanel);
+        this.overPanel = new OverPanel();
+        this.contentPane.add("over", overPanel);
+        ((CardLayout)this.contentPane.getLayout()).show(contentPane,"start");
         this.setVisible(true);
     }
 }

@@ -78,4 +78,7 @@ public class Resourceloader {
     }
 
     public HashMap<String, List<String>> getgameInfo() {return gameInfo;}
+
+    public HashMap<String, ImageIcon> getimageInfo() {return imageInfo;}
+
 }
