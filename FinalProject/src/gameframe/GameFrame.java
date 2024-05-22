@@ -1,44 +1,31 @@
 package gameframe;
 
 import java.awt.*;
+import java.util.List;
 import javax.swing.*;
+import resourceloader.Resourceloader;
 public class GameFrame extends JFrame {
-    private InitialPanel initialPanel;
-    private GamePanel gamePanel;
-    private JPanel mainPanel;
-    private CardLayout cardLayout;
-
-    public GameFrame(){
-        setSize(800, 600);
+    
+    public GameFrame() {
         init();
     }
-
-    private void init(){
+    
+    public void init(){
         this.setTitle("PaoPaoTang");
+        List<String> windowsize = Resourceloader.getResourceloader().getgameInfo().get("windowsize");
+        this.setSize(Integer.valueOf(windowsize.get(0)), Integer.valueOf(windowsize.get(1)));
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);
-        this.setLocationRelativeTo(null);
-
-        cardLayout = new CardLayout();
-        mainPanel = new JPanel(cardLayout);
-
-        initialPanel = new InitialPanel();
-        gamePanel = new GamePanel();
-
-        mainPanel.add(initialPanel, "InitialPanel");
-        mainPanel.add(gamePanel, "GamePanel");
-
-        this.add(mainPanel);
-        cardLayout.show(mainPanel, "InitialPanel");
-
+        this.setLocationRelativeTo(null);        //将窗口设置于屏幕中央
+        CardLayout cardLayout = new CardLayout();
+        //this.contentPane = new JPanel();
+        //this.setContentPane(contentPane);
+        //this.contentPane.setLayout(cardLayout);
+        //this.startPanel = new StartPanel();
+        //this.contentPane.add("start",startPanel);
+        //this.overPanel = new OverPanel();
+        //this.contentPane.add("over", overPanel);
+        //((CardLayout)this.contentPane.getLayout()).show(contentPane,"start");
         this.setVisible(true);
-    }
-
-    /*public static void main(String[] args) {
-        SwingUtilities.invokeLater(GameFrame::new);
-    }*/
-
-    public void switchToGamePanel() {
-        cardLayout.show(mainPanel, "GamePanel");
     }
 }
