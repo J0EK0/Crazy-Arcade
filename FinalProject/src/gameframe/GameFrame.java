@@ -39,6 +39,13 @@ public class GameFrame extends JFrame {
         gameThread.start();
         gamePanel = new GamePanel();
         contentPane.add("game", gamePanel);
-        //new Thread(gamePanel).start();
+        new Thread(gamePanel).start();
+    }
+
+    public void changePanel(String panelname){
+        ((CardLayout)this.contentPane.getLayout()).show(contentPane,panelname);
+        if(panelname == "game"){
+            gamePanel.requestFocus();
+        }
     }
 }

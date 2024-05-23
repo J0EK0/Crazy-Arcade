@@ -24,13 +24,15 @@ public class GameThread extends Thread{
 
     @Override
     public void run() {
-        while (!over){
+        /*while (!over){
             running = true;
             loadMap();
             //runGame();
             //gameClean();
             //StartGame.changePanel("over");
-        }
+        }*/
+        running = true;
+        loadMap();
     }
 
     private void loadMap(){

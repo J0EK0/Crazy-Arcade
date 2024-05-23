@@ -74,9 +74,8 @@ public class GameMap {
         }
         HashMap<String, List<String>> objectInfo = Resourceloader.getResourceloader().getMapObjectInfo();
         //HashMap<String, List<String>>  mapInfo = Resourceloader.getResourceloader().getMapInfo();
-        System.out.println(ObjectController.getObjController());
+        //System.out.println(ObjectController.getObjController());
         HashMap<String, List<SuperObject>> map = ObjectController.getObjController().getMap();
-        
         //创建地板
         for(int i=0;i<rows;i++){
             for(int j=0;j<cols;j++){
