@@ -24,7 +24,6 @@ public class StartGame {
         gameFrame.setVisible(true);
     }
 
-<<<<<<< HEAD
     public static void startgame(){
         gameFrame.startGame();
         changePanel("game");
@@ -40,14 +39,6 @@ public class StartGame {
         }
         gameFrame.changePanel(panelname);
         gameFrame.setVisible(true);
-=======
-    public void startGame(String map){
-        /*gamethread = new Gamethread(map);
-        gamethread.start();
-        gamePanel = new GamePanel();
-        contentPane.add("game", gamePanel);*/
-        //new Gamethread(gamePanel).start();
->>>>>>> d16430c (0)
     }
     /*public static void changePanel(String panelName){
         if(panelName.equals("game")){

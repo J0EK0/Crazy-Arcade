@@ -1,6 +1,4 @@
 package gameframe;
-import controller.ObjectController;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.util.HashMap;
 import java.util.List;
@@ -9,8 +7,6 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
-import main.StartGame;
-import model.gameobject.SuperObject;
 import resourceloader.Resourceloader;
 
 
@@ -115,13 +111,8 @@ public class InitialPanel extends JPanel {
         //this.add(introButton);
         this.setVisible(true);
         this.setOpaque(true);
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
         HashMap<String, List<String>> objectInfo = Resourceloader.getResourceloader().getMapObjectInfo();
-=======
-        //HashMap<String, List<String>> objectInfo = Resourceloader.getResourceloader().getMapObjectInfo();
->>>>>>> d16430c (0)
+
         //System.out.println(objectInfo.get("10"));
         /*for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
@@ -133,50 +124,16 @@ public class InitialPanel extends JPanel {
                 }
             }
         }*/
-
-        
-<<<<<<< HEAD
->>>>>>> 58d5c9b (o)
-        //run();
     }
-   /*  public void run() {
-        //ObjectController.getObjController().loadMap();
-        //repaint();
-        this.repaint();
-    }
-    public void paint(Graphics g){
-        super.paint(g);
-        GamePaint(g);
-    }
-    public void GamePaint(Graphics g){
-        HashMap<String, List<SuperObject>> map = ObjectController.getObjController().getMap();
-        for(String key:map.keySet()){
-            List<SuperObject> list = map.get(key);
-            for(int i=0;i<list.size();i++){
-                list.get(i).showObject(g);
-            }
+        private void startButtonActionPerformed(ActionEvent e){
+            System.out.println("select");
+            /*changeButton.setVisible(true);
+            ensureButton.setVisible(true);
+            playerLabel.setVisible(true);
+            layeredPane.repaint();
+            layeredPane.revalidate();*/
+            //StartGame.startgame();
         }
-<<<<<<< HEAD
-=======
-    }*/
-    public void addImageLabel(ImageIcon icon, int x, int y) {
-=======
-       // run();
-    }
-     
-    /*public void addImageLabel(ImageIcon icon, int x, int y) {
->>>>>>> d16430c (0)
-        JLabel label = new JLabel(icon);
-        label.setBounds(x, y, icon.getIconWidth(), icon.getIconHeight());
-        this.add(label);
-        this.repaint(); // Refresh panel to display newly added label
->>>>>>> 58d5c9b (o)
-    }
-    */
-    private void startButtonActionPerformed(ActionEvent e){
-        System.out.println("start");
-        //StartGame.startgame();
-    }
     private void selectButtonActionPerformed(ActionEvent e){
         System.out.println("select");
         changeButton.setVisible(true);
