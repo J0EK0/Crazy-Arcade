@@ -31,4 +31,5 @@ public class GameFrame extends JFrame {
         ((CardLayout)this.contentPane.getLayout()).show(contentPane,"start");
         this.setVisible(true);
     }
+    
 }
