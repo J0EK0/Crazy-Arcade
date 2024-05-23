@@ -28,7 +28,8 @@ public class GamePanel extends JPanel implements Runnable{
 
     @Override
     public void run() {
-        while (running){
+        this.repaint();
+        /*while (running){
             try{
                 Thread.sleep(20);
             }catch (Exception e){
@@ -37,7 +38,7 @@ public class GamePanel extends JPanel implements Runnable{
             if(GameController.isGameRunning()){
                 this.repaint();
             }
-        }
+        }*/
     }
 
     public void Gamepaint(Graphics g){
@@ -48,7 +49,7 @@ public class GamePanel extends JPanel implements Runnable{
         for(String key:sortitems){
             List<SuperObject> list = map.get(key);
             for(int i=0;i<list.size();i++){
-                //list.get(i).showObject(g);
+                list.get(i).showObject(g);
             }
         }
     }

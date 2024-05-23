@@ -21,8 +21,8 @@ public class GameMap {
         this.height=height;
         mapList = new ArrayList<>();
         initMapList();
-        //biasX = (width - MapObject.PIXEL_X*cols)/4;
-        //biasY = (height - MapObject.PIXEL_Y*rows)/2;
+        biasX = (width - MapObject.PIXEL_X*cols)/4;
+        biasY = (height - MapObject.PIXEL_Y*rows)/2;
     }
 
     public void initMapList() {
