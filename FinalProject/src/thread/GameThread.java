@@ -1,22 +1,8 @@
-package Thread;
+package thread;
 
-import controller.GameController;
 import controller.ObjectController;
-/*import gui.GamePanel;
-import gui.OverPanel;*/
-import main.StartGame;
-/*import model.gamecharacter.Player;
-import model.gameobject.MapBubble;
-import model.gameobject.MapFragility;
-import model.gameobject.MapGameProps;*/
-import model.gameobject.SuperObject;
-import resourceloader.Resourceloader;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Set;
-
-public class Gamethread extends Thread{
+public class GameThread extends Thread{
     private String map;
     private boolean running;
     private boolean over = false;
