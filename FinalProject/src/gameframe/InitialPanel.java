@@ -60,7 +60,7 @@ public class InitialPanel extends JPanel {
         this.add(startButton);
         this.setVisible(true);
         this.setOpaque(true);
-        run();
+        //run();
     }
     public void run() {
         this.repaint();
