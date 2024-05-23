@@ -45,6 +45,7 @@ public class GameThread extends Thread{
             if(GameController.isGameRunning()){
                 HashMap<String, List<SuperObject>> map = ObjectController.getObjController().getMap();
                 Set<String> objSet = map.keySet();
+
                 for(String obj:objSet){
                     List<SuperObject> objList = map.get(obj);
                     for(int i = 0;i<objList.size();i++){
@@ -59,6 +60,7 @@ public class GameThread extends Thread{
                 playerExplode();
                 bubbleExplodeSerial();
                 gameResult();
+
                 gameTime = gameTime - refreshTime;
             }
             try{
@@ -75,9 +77,9 @@ public class GameThread extends Thread{
     }
 
     private void ExplodeFragility(){
-        List<SuperObject> playerList = ObjectController.getObjController().getMap().get("player");
         List<SuperObject> explodeList = ObjectController.getObjController().getMap().get("bubbleExplode");
         List<SuperObject> fragilityList = ObjectController.getObjController().getMap().get("fragility");
+
         for(int i = 0;i<explodeList.size();i++){
             for(int j=0;j<fragilityList.size();j++){
                 if(explodeList.get(i).collision(fragilityList.get(j))){
@@ -92,6 +94,7 @@ public class GameThread extends Thread{
     private void playerGameprops(){
         List<SuperObject> playerList = ObjectController.getObjController().getMap().get("player");
         List<SuperObject> gamepropsList = ObjectController.getObjController().getMap().get("gameprops");
+
         for(int i = 0; i < playerList.size(); i++){
             for(int j = 0; j < gamepropsList.size(); j++){
                 if(gamepropsList.get(j).collision(playerList.get(i))){
@@ -106,6 +109,7 @@ public class GameThread extends Thread{
     private void bubbleExplodeSerial(){
         List<SuperObject> bubbleList = ObjectController.getObjController().getMap().get("bubble");
         List<SuperObject> explodeList = ObjectController.getObjController().getMap().get("bubbleExplode");
+
         for(int i = 0;i<explodeList.size();i++){
             for(int j = 0;j<bubbleList.size();j++){
                 if(explodeList.get(i).collision(bubbleList.get(j))){
@@ -119,6 +123,7 @@ public class GameThread extends Thread{
     private void  playerExplode(){
         List<SuperObject> playerList = ObjectController.getObjController().getMap().get("player");
         List<SuperObject> explodeList = ObjectController.getObjController().getMap().get("bubbleExplode");
+
         for(int i = 0; i < playerList.size(); i++){
             for(int j = 0; j < explodeList.size(); j++){
                 if(explodeList.get(j).collision(playerList.get(i))){

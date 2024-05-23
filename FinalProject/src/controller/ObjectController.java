@@ -1,6 +1,7 @@
 package controller;
 
 import java.util.*;
+
 import model.gameobject.SuperObject;
 import resourceloader.Resourceloader;
 public class ObjectController {
@@ -26,7 +27,6 @@ public class ObjectController {
         map = new HashMap<>();
         priority = new HashMap<>();
         map.put("floor", new ArrayList<SuperObject>());
-        priority.put("floor", -1);
         
     }
     public static ObjectController getObjController(){
@@ -56,7 +56,6 @@ public class ObjectController {
     public void loadMap(){
         gameMap.createMap();
     }
-
     /*public void gameClean(){
         ObjectController.getObjController().getMap().get("player").clear();
         ObjectController.getObjController().getMap().get("floor").clear();
