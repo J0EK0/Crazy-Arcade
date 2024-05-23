@@ -4,7 +4,10 @@ import java.awt.*;
 import javax.swing.*;
 public class MapObject extends SuperObject{
     private ImageIcon img;
+    public static final int PIXEL_X = 48;
+    public static final int PIXEL_Y = 48;
     private int sx1, sy1, sx2, sy2;
+    
     public MapObject(int x, int y, int width, int height, int sx1, int sy1, int sx2, int sy2, ImageIcon img) {
         super(x, y, width, height);
         this.sx1 = sx1;

@@ -2,6 +2,7 @@ package controller;
 
 import java.util.*;
 
+import model.gamecharacter.Player;
 import model.gameobject.SuperObject;
 import resourceloader.Resourceloader;
 public class ObjectController {
@@ -27,6 +28,7 @@ public class ObjectController {
         gameMap = new GameMap(Integer.parseInt(windowsize.get(0)), Integer.parseInt(windowsize.get(1)));
         map = new HashMap<>();
         map.put("floor", new ArrayList<SuperObject>());
+        map.put("player", new ArrayList<SuperObject>());
         
     }
     public static ObjectController getObjController(){
@@ -36,6 +38,15 @@ public class ObjectController {
     public void loadMap(){
         gameMap.createMap();
     }
+
+    private void initPlayer(int i, int j){
+        List<SuperObject> playerList = ObjectController.getObjController().getMap().get("player");
+        HashMap<String, List<String>> objectInfo = Resourceloader.getResourceloader().getMapObjectInfo();
+        List<String> playInfo = objectInfo.get("player");
+        Player player = Player.createPlayer(i, j, playInfo);
+        playerList.add(player);
+    }
+    
     /*public void gameClean(){
         ObjectController.getObjController().getMap().get("player").clear();
         ObjectController.getObjController().getMap().get("floor").clear();

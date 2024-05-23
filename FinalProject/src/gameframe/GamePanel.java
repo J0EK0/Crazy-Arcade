@@ -33,7 +33,6 @@ public class GamePanel extends JPanel {
         mapPanel.setBounds(0, 0, TILE_SIZE * 10, TILE_SIZE * 10); // Adjust the size as needed
 
         // Initialize the map with tiles
-        tiles = new Tile[10][10];
         String[][] map = {
             {"FinalProject/src/images/blue_house.png", "src/images/blue_house.png", "src/images/blue_house.png", "src/images/blue_house.png", "src/images/blue_house.png", "src/images/blue_house.png", "src/images/blue_house.png", "src/images/blue_house.png", "src/images/blue_house.png", "src/images/blue_house.png"},
             {"src/images/blue_house.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/blue_house.png"},
@@ -46,13 +45,6 @@ public class GamePanel extends JPanel {
             {"src/images/blue_house.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/green_tile.png", "src/images/blue_house.png"},
             {"src/images/blue_house.png", "src/images/blue_house.png", "src/images/blue_house.png", "src/images/blue_house.png", "src/images/blue_house.png", "src/images/blue_house.png", "src/images/blue_house.png", "src/images/blue_house.png", "src/images/blue_house.png", "src/images/blue_house.png"}
         };
-
-        for (int row = 0; row < 10; row++) {
-            for (int col = 0; col < 10; col++) {
-                tiles[row][col] = new Tile(map[row][col], TILE_SIZE);
-                mapPanel.add(tiles[row][col]);
-            }
-        }
 
         // Add the map panel to the layered pane
         layeredPane.add(mapPanel, JLayeredPane.DEFAULT_LAYER);
