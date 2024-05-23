@@ -24,7 +24,7 @@ public class StartGame {
     }
 
     public static void changePanel(String panelname){
-        System.out.println("Changing panel ");
+        System.out.println("Changing panel "+panelname);
         if(GameController.isGameRunning() == false){
             GameController.setGameRunning(true);
         }
@@ -34,14 +34,5 @@ public class StartGame {
         gameFrame.changePanel(panelname);
         gameFrame.setVisible(true);
     }
-    /*public static void changePanel(String panelName){
-        if(panelName.equals("game")){
-            GameController.setGameRunning(true);
-        }else {
-            GameController.setGameRunning(false);
-        }
-        gameFrame.switchPanel(panelName);
-        gameFrame.setVisible(true);
-    }*/
-
+    
 }

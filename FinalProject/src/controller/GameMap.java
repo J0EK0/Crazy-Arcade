@@ -73,16 +73,15 @@ public class GameMap {
             e.printStackTrace();
         }
         HashMap<String, List<String>> objectInfo = Resourceloader.getResourceloader().getMapObjectInfo();
-        //HashMap<String, List<String>>  mapInfo = Resourceloader.getResourceloader().getMapInfo();
+        HashMap<String, List<String>>  mapInfo = Resourceloader.getResourceloader().getMapInfo();
         //System.out.println(ObjectController.getObjController());
         HashMap<String, List<SuperObject>> map = ObjectController.getObjController().getMap();
         //创建地板
-       /*  for(int i=0;i<rows;i++){
+        for(int i=0;i<rows;i++){
             for(int j=0;j<cols;j++){
                 //ImageIcon imageIcon = MapFloor.createMapFloor(i, j, objectInfo.get("10")).getImageIcon();
                 map.get("floor").add(MapFloor.createMapFloor(i, j, objectInfo.get("10")));
             }
-<<<<<<< HEAD
         }
         //创建物品与人物
         /*for(int i=0;i<rows;i++){
@@ -97,9 +96,9 @@ public class GameMap {
                         map.get("fragility").add(MapFragility.createMapFragility(i, j, objectInfo.get(type)));
                         break;
                     case  '3':
-                        map.get("gameprops").add(MapGameProps.createMapGameProps(i, j));
+                        //map.get("gameprops").add(MapGameProps.createMapGameProps(i, j));
                     case  '6':
-                        initPlayer(i, j);
+                        //initPlayer(i, j);
                     default:
                         break;
 

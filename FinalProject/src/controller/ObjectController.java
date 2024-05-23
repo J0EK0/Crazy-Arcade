@@ -27,6 +27,7 @@ public class ObjectController {
         map = new HashMap<>();
         priority = new HashMap<>();
         map.put("floor", new ArrayList<SuperObject>());
+        priority.put("floor", -1);
         
     }
     public static ObjectController getObjController(){

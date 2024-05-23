@@ -1,4 +1,6 @@
 package gameframe;
+import controller.ObjectController;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.util.HashMap;
 import java.util.List;
@@ -7,6 +9,8 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
+import main.StartGame;
+import model.gameobject.SuperObject;
 import resourceloader.Resourceloader;
 
 
@@ -125,15 +129,11 @@ public class InitialPanel extends JPanel {
             }
         }*/
     }
-        private void startButtonActionPerformed(ActionEvent e){
-            System.out.println("select");
-            /*changeButton.setVisible(true);
-            ensureButton.setVisible(true);
-            playerLabel.setVisible(true);
-            layeredPane.repaint();
-            layeredPane.revalidate();*/
-            //StartGame.startgame();
-        }
+    private void startButtonActionPerformed(ActionEvent e){
+        System.err.println("Start");
+        StartGame.startgame();
+
+    }
     private void selectButtonActionPerformed(ActionEvent e){
         System.out.println("select");
         changeButton.setVisible(true);
@@ -171,5 +171,21 @@ public class InitialPanel extends JPanel {
         layeredPane.revalidate();
        // System.out.println("start");
         //StartGame.startgame();
+    }
+    public void run() {
+        this.repaint();
+    }
+    public void paint(Graphics g){
+        super.paint(g);
+        GamePaint(g);
+    }
+    public void GamePaint(Graphics g){
+        HashMap<String, List<SuperObject>> map = ObjectController.getObjController().getMap();
+        for(String key:map.keySet()){
+            List<SuperObject> list = map.get(key);
+            for(int i=0;i<list.size();i++){
+                list.get(i).showObject(g);
+            }
+        }
     }
 }
