@@ -109,14 +109,11 @@ public class Resourceloader {
         in.close();
     }
 
-    public HashMap<String, List<String>> getgameInfo() {
-        return gameInfo;
-    }
+    public HashMap<String, List<String>> getgameInfo() {return gameInfo;}
     public HashMap<String, List<String>>getMapInfo() {return mapInfo;}
-    public HashMap<String, List<String>> getMapObjectInfo() {return  mapObjInfo;}
-    public HashMap<String, ImageIcon> getimageInfo() {
-        return imageInfo;
-    }
+    public HashMap<String, List<String>> getMapObjectInfo() {return mapObjInfo;}
+    public HashMap<String, ImageIcon> getimageInfo() {return imageInfo;}
+
     public void readMapCfg() throws IOException {
         String mapFile = "/config/MapStage/map.cfg";  // 指定的 map 檔案名稱
     

@@ -80,11 +80,11 @@ public class GameMap {
         for(int i=0;i<rows;i++){
             for(int j=0;j<cols;j++){
                 //ImageIcon imageIcon = MapFloor.createMapFloor(i, j, objectInfo.get("10")).getImageIcon();
-                map.get("floor").add(MapFloor.createMapFloor(i, j, objectInfo.get("10")));
+                map.get("floor").add(MapFloor.createMapFloor(i, j, objectInfo.get("01")));
             }
         }
         //创建物品与人物
-        /*for(int i=0;i<rows;i++){
+        for(int i=0;i<rows;i++){
             List<String> objs = mapInfo.get(String.valueOf(i+1));
             for(int j=0;j<objs.size();j++){
                 String type = objs.get(j);
@@ -104,7 +104,7 @@ public class GameMap {
 
                 }
             }
-        }*/
+        }
         //TODO:
     }
 
