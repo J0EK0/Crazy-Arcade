@@ -28,8 +28,7 @@ public class GamePanel extends JPanel implements Runnable{
 
     @Override
     public void run() {
-        this.repaint();
-        /*while (running){
+        while (running){
             try{
                 Thread.sleep(20);
             }catch (Exception e){
@@ -38,7 +37,7 @@ public class GamePanel extends JPanel implements Runnable{
             if(GameController.isGameRunning()){
                 this.repaint();
             }
-        }*/
+        }
     }
 
     public void Gamepaint(Graphics g){

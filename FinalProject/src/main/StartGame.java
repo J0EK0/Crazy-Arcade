@@ -34,5 +34,4 @@ public class StartGame {
         gameFrame.changePanel(panelname);
         gameFrame.setVisible(true);
     }
-    
 }
