@@ -29,6 +29,9 @@ public class ObjectController {
         map.put("floor", new ArrayList<SuperObject>());
         
     }
+    public void loadMap(){
+        gameMap.createMap();
+    }
     public static ObjectController getObjController(){
         return oc;
     }

@@ -39,6 +39,28 @@ public class GameMap {
     }
 
 
+<<<<<<< HEAD
+=======
+    rows = Integer.valueOf(sizeInfo.get(0));
+    cols = Integer.valueOf(sizeInfo.get(1));
+
+    // 確保 mapList 是空的，以避免重複數據
+    mapList.clear();
+    for (int i = 0; i < rows; i++) {
+        mapList.add(mapInfo.get(String.valueOf(i + 1)));
+    }
+
+    // 打印 mapList 以查看其內容
+    System.out.println("Map List:");
+    for (List<String> row : mapList) {
+        System.out.println(row);
+    }
+    System.out.println("test4");
+    //createMap();
+}
+
+
+>>>>>>> 58d5c9b (o)
     public void createMap() {
         try {
             Resourceloader.getResourceloader().readMapCfg(); // 確保這裡傳遞 map 參數
@@ -75,14 +97,24 @@ public class GameMap {
         HashMap<String, List<String>> objectInfo = Resourceloader.getResourceloader().getMapObjectInfo();
         //HashMap<String, List<String>>  mapInfo = Resourceloader.getResourceloader().getMapInfo();
         //System.out.println(ObjectController.getObjController());
+<<<<<<< HEAD
         HashMap<String, List<SuperObject>> map = ObjectController.getObjController().getMap();
+=======
+        //HashMap<String, List<SuperObject>> map = ObjectController.getObjController().getMap();
+        
+>>>>>>> 58d5c9b (o)
         //创建地板
-        for(int i=0;i<rows;i++){
+       /*  for(int i=0;i<rows;i++){
             for(int j=0;j<cols;j++){
                 //ImageIcon imageIcon = MapFloor.createMapFloor(i, j, objectInfo.get("10")).getImageIcon();
                 map.get("floor").add(MapFloor.createMapFloor(i, j, objectInfo.get("10")));
             }
+<<<<<<< HEAD
         }
+=======
+        }*/
+        System.out.println("test666");
+>>>>>>> 58d5c9b (o)
         //创建物品与人物
         /*for(int i=0;i<rows;i++){
             List<String> objs = mapInfo.get(String.valueOf(i+1));

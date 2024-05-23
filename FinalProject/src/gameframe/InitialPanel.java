@@ -60,9 +60,28 @@ public class InitialPanel extends JPanel {
         this.add(startButton);
         this.setVisible(true);
         this.setOpaque(true);
+<<<<<<< HEAD
+=======
+        HashMap<String, List<String>> objectInfo = Resourceloader.getResourceloader().getMapObjectInfo();
+        //System.out.println(objectInfo.get("10"));
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                ImageIcon imageIcon = MapFloor.createMapFloor(i, j, objectInfo.get("10")).getImageIcon();
+                if (imageIcon != null) {
+                    addImageLabel(imageIcon, j * imageIcon.getIconWidth(), i * imageIcon.getIconHeight());
+                } else {
+                    System.out.println("未找到圖標: i=" + i + ", j=" + j);
+                }
+            }
+        }
+
+        
+>>>>>>> 58d5c9b (o)
         //run();
     }
-    public void run() {
+   /*  public void run() {
+        //ObjectController.getObjController().loadMap();
+        //repaint();
         this.repaint();
     }
     public void paint(Graphics g){
@@ -77,6 +96,15 @@ public class InitialPanel extends JPanel {
                 list.get(i).showObject(g);
             }
         }
+<<<<<<< HEAD
+=======
+    }*/
+    public void addImageLabel(ImageIcon icon, int x, int y) {
+        JLabel label = new JLabel(icon);
+        label.setBounds(x, y, icon.getIconWidth(), icon.getIconHeight());
+        this.add(label);
+        this.repaint(); // Refresh panel to display newly added label
+>>>>>>> 58d5c9b (o)
     }
     
     private void startButtonActionPerformed(ActionEvent e){
