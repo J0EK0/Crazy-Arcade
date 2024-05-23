@@ -13,6 +13,10 @@ public class MapObject extends SuperObject{
         this.sy2 = sy2;
 
     }
+    public void move(){};
+
+    public void destroy(){};
+
     public void showObject(Graphics g){
         g.drawImage(img.getImage(), getx(), gety(), getx()+getw(), gety()+geth(), sx1, sy1, sx2, sy2, null);
     }
