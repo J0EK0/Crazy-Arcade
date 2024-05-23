@@ -6,6 +6,7 @@ public class ObjectController {
     private static ObjectController oc;
     private GameMap gameMap;
     static{
+        System.out.println("ObjectController");
         oc = new ObjectController();
     }
     public ObjectController() {
