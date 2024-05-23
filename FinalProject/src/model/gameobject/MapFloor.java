@@ -1,14 +1,8 @@
 package model.gameobject;
 
-import resourceloader.Resourceloader;
-
-import javax.swing.*;
-
-import gameframe.InitialPanel;
-
 import java.util.List;
-
 import javax.swing.ImageIcon;
+import resourceloader.Resourceloader;
 
 
 
@@ -24,7 +18,7 @@ public class MapFloor extends MapObject{
         //System.out.println(floorData.get(0));
         
         ImageIcon img = Resourceloader.getResourceloader().getimageInfo().get(floorData.get(0));
-        //System.out.println(img);
+        System.out.println(img);
         int sx1 = Integer.valueOf(floorData.get(1));
         int sy1 = Integer.valueOf(floorData.get(2));
         int sx2 = Integer.valueOf(floorData.get(3));
