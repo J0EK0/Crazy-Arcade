@@ -73,11 +73,6 @@ public class GameMap {
             e.printStackTrace();
         }
         HashMap<String, List<String>> objectInfo = Resourceloader.getResourceloader().getMapObjectInfo();
-        // 印出 objectInfo 
-        /*for (Map.Entry<String, List<String>> entry : objectInfo.entrySet()) {
-            System.out.println("Key: " + entry.getKey() + ", Values: " + entry.getValue());
-        }*/
-
         //HashMap<String, List<String>>  mapInfo = Resourceloader.getResourceloader().getMapInfo();
         System.out.println(ObjectController.getObjController());
         HashMap<String, List<SuperObject>> map = ObjectController.getObjController().getMap();
@@ -86,8 +81,6 @@ public class GameMap {
         for(int i=0;i<rows;i++){
             for(int j=0;j<cols;j++){
                 //ImageIcon imageIcon = MapFloor.createMapFloor(i, j, objectInfo.get("10")).getImageIcon();
-                //System.out.println(imageIcon);
-                //System.out.println(MapFloor.createMapFloor(i, j, objectInfo.get("10")));
                 map.get("floor").add(MapFloor.createMapFloor(i, j, objectInfo.get("10")));
             }
         }
