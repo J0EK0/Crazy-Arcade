@@ -19,7 +19,6 @@ public class StartGame {
     }
 
     public static void changePanel(String panelname){
-        System.out.println("Changing panel ");
         if(GameController.isGameRunning() == false){
             GameController.setGameRunning(true);
         }

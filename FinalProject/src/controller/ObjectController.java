@@ -26,7 +26,19 @@ public class ObjectController {
         map = new HashMap<>();
         priority = new HashMap<>();
         map.put("floor", new ArrayList<SuperObject>());
+        map.put("player", new ArrayList<SuperObject>());
+        map.put("obstacle", new ArrayList<SuperObject>());
+        map.put("fragility", new ArrayList<SuperObject>());
+        map.put("gameprops", new ArrayList<SuperObject>());
+        map.put("bubble", new ArrayList<SuperObject>());
+        map.put("bubbleExplode", new ArrayList<SuperObject>());
         priority.put("floor", -1);
+        priority.put("player", 6);
+        priority.put("obstacle", 5);
+        priority.put("fragility",2);
+        priority.put("gameprops",3);
+        priority.put("bubble", 1);
+        priority.put("bubbleExplode", 4);
         
     }
     public static ObjectController getObjController(){

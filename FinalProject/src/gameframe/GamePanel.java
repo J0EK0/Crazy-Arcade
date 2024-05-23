@@ -45,7 +45,6 @@ public class GamePanel extends JPanel implements Runnable{
         HashMap<String, List<SuperObject>> map = ObjectController.getObjController().getMap();
         Set<String> sortitems = new TreeSet<String>(ObjectController.getObjController().getPriorty());
         sortitems.addAll(map.keySet());
-        System.out.println(sortitems);
         for(String key:sortitems){
             List<SuperObject> list = map.get(key);
             for(int i=0;i<list.size();i++){
