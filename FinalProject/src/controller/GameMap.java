@@ -1,15 +1,11 @@
 package controller;
 
 //import model.gamecharacter.Player;
-import model.gameobject.*;
-import resourceloader.Resourceloader;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
-import javax.swing.ImageIcon;
+import model.gameobject.*;
+import resourceloader.Resourceloader;
 
 public class GameMap {
     private static int width;
@@ -30,39 +26,20 @@ public class GameMap {
     }
 
     public void initMapList() {
-    HashMap<String, List<String>> mapInfo = Resourceloader.getResourceloader().getMapInfo();
-    // 打印 mapInfo 以查看其所有內容
-    System.out.println("Map Info:");
-    for (Map.Entry<String, List<String>> entry : mapInfo.entrySet()) {
-        System.out.println("Key: " + entry.getKey() + ", Values: " + entry.getValue());
+        HashMap<String, List<String>> mapInfo = Resourceloader.getResourceloader().getMapInfo();
+
+        List<String> sizeInfo = mapInfo.get("size");
+        rows = Integer.valueOf(sizeInfo.get(0));
+        cols = Integer.valueOf(sizeInfo.get(1));
+
+        // 確保 mapList 是空的，以避免重複數據
+        for (int i = 0; i < rows; i++) {
+            mapList.add(mapInfo.get(String.valueOf(i + 1)));
+        }
     }
 
-    List<String> sizeInfo = mapInfo.get("size");
-    if (sizeInfo == null || sizeInfo.size() < 2) {
-        throw new IllegalStateException("Map size configuration is incorrect or missing.");
-    }
-    System.out.println("initMapList: Size Info - " + sizeInfo);
 
-    rows = Integer.valueOf(sizeInfo.get(0));
-    cols = Integer.valueOf(sizeInfo.get(1));
-
-    // 確保 mapList 是空的，以避免重複數據
-    mapList.clear();
-    for (int i = 0; i < rows; i++) {
-        mapList.add(mapInfo.get(String.valueOf(i + 1)));
-    }
-
-    // 打印 mapList 以查看其內容
-    System.out.println("Map List:");
-    for (List<String> row : mapList) {
-        System.out.println(row);
-    }
-    System.out.println("test4");
-    createMapObject();
-}
-
-
-    /*public void createMap(String map) {
+    public void createMap() {
         try {
             Resourceloader.getResourceloader().readMapCfg(); // 確保這裡傳遞 map 參數
         } catch (Exception e) {
@@ -87,13 +64,11 @@ public class GameMap {
     
         // 調用 createMapObject 方法以建立地圖物件
         createMapObject();
-    }*/
+    }
     private void createMapObject(){
         try {
-            System.out.println("test2");
             Resourceloader r = new Resourceloader();
             r.readMapObjectCfg();
-            System.out.println("test3");
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -116,7 +91,7 @@ public class GameMap {
                 map.get("floor").add(MapFloor.createMapFloor(i, j, objectInfo.get("10")));
             }
         }
-        System.out.println("test666");
+        //System.out.println("test666");
         //创建物品与人物
         /*for(int i=0;i<rows;i++){
             List<String> objs = mapInfo.get(String.valueOf(i+1));

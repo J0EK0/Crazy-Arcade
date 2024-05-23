@@ -1,12 +1,11 @@
 package resourceloader;
-import java.util.*;
-import javax.swing.*;
-
+import java.awt.Image;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
-import java.awt.Image;
+import java.util.*;
+import javax.swing.*;
 public class Resourceloader {
     private static Resourceloader rl;
     private Properties properties;
@@ -83,7 +82,7 @@ public class Resourceloader {
                 }
             }
         } finally {
-            printImageInfo();
+            //printImageInfo();
             in.close();
         }
     }
@@ -137,7 +136,7 @@ public class Resourceloader {
                 List<String> values = StringToList(mInfo, ",");
                 mapInfo.put(key, values);
     
-                System.out.println("Key: " + key + ", Values: " + values);  // 可以移除此行，如果不需要在控制台輸出
+                //System.out.println("Key: " + key + ", Values: " + values);  // 可以移除此行，如果不需要在控制台輸出
             }
         } catch (IOException e) {
             System.err.println("Error loading map configuration: " + e.getMessage());
@@ -164,7 +163,7 @@ public class Resourceloader {
             if (in == null) {
                 System.out.println("Failed to load /config/mapObject.cfg");
             } else {
-                System.out.println("Successfully loaded /config/mapObject.cfg");
+                //System.out.println("Successfully loaded /config/mapObject.cfg");
             }
             properties.clear();
             properties.load(in);
@@ -177,7 +176,7 @@ public class Resourceloader {
             }
             for (String key : mapObjInfo.keySet()) {
                 List<String> values = mapObjInfo.get(key);
-                System.out.println("Key: " + key + ", Values: " + values);
+                //System.out.println("Key: " + key + ", Values: " + values);
             }
         } catch (IOException e) {
             System.err.println("Error loading configuration: " + e.getMessage());

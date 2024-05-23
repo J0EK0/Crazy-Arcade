@@ -7,8 +7,6 @@ import resourceloader.Resourceloader;
 public class ObjectController {
     private static ObjectController oc;
     static{
-        System.out.println("ObjectController");
-        //System.out.println("new");
         oc = new ObjectController();
     }
     private GameMap gameMap;
@@ -32,11 +30,11 @@ public class ObjectController {
         
     }
     public static ObjectController getObjController(){
-        /*if (oc == null) {
-            oc = new ObjectController();
-        }*/
-        //System.out.println("new");
         return oc;
+    }
+
+    public void loadMap(){
+        gameMap.createMap();
     }
     /*public void gameClean(){
         ObjectController.getObjController().getMap().get("player").clear();

@@ -13,6 +13,6 @@ public class StartGame {
     }
 
     public static void startgame(){
-
+        gameFrame.startGame();
     }
 }
