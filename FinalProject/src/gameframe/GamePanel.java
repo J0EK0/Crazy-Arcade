@@ -10,7 +10,6 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 public class GamePanel extends JPanel {
-    private Tile[][] tiles;
     private JLabel playerLabel;
     private JLayeredPane layeredPane;
     private int playerRow = 1;
