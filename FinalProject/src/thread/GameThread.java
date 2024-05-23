@@ -6,6 +6,7 @@ import controller.ObjectController;
 import main.StartGame;
 
 import resourceloader.Resourceloader;
+import model.gameobject.SuperObject;
 
 import java.util.HashMap;
 import java.util.List;

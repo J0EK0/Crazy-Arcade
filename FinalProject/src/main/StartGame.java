@@ -1,20 +1,14 @@
 package main;
-<<<<<<< HEAD
-
-=======
-import resourceloader.Resourceloader;
-import Thread.Gamethread;
-import Thread.Gamethread;
->>>>>>> d16430c (0)
 import controller.GameController;
 import controller.ObjectController;
 import gameframe.GameFrame;
 import gameframe.GamePanel;
 import javax.swing.*;
 import resourceloader.Resourceloader;
+import thread.GameThread;
 public class StartGame {
     private static GameFrame gameFrame;
-    private static Gamethread gamethread;
+    private static GameThread gamethread;
     private static GamePanel gamePanel;
     private static JPanel contentPane;
     private static Resourceloader rl;
