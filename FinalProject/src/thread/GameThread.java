@@ -27,7 +27,7 @@ public class GameThread extends Thread{
         while (!over){
             running = true;
             loadMap();
-            runGame();
+            //runGame();
             //gameClean();
             //StartGame.changePanel("over");
         }

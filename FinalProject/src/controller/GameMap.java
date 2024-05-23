@@ -91,7 +91,7 @@ public class GameMap {
                 map.get("floor").add(MapFloor.createMapFloor(i, j, objectInfo.get("10")));
             }
         }
-        //System.out.println("test666");
+        System.out.println("test666");
         //创建物品与人物
         /*for(int i=0;i<rows;i++){
             List<String> objs = mapInfo.get(String.valueOf(i+1));
