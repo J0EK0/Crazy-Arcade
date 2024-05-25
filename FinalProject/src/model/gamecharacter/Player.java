@@ -32,6 +32,7 @@ public class Player extends Character{
         return  new Player(x, y, w, h, imageInfo.get(playerInfo.get(0))); //+String.valueOf(StartPanel.playerIndex)
     }
 
+    @Override
     public void showObject(Graphics g) {
         if(isShowing==false){
             return;

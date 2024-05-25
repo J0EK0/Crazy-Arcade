@@ -1,9 +1,9 @@
 package controller;
 
-//import model.gamecharacter.Player;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import model.gamecharacter.Player;
 import model.gameobject.*;
 import resourceloader.Resourceloader;
 
@@ -74,15 +74,14 @@ public class GameMap {
         }
         HashMap<String, List<String>> objectInfo = Resourceloader.getResourceloader().getMapObjectInfo();
         HashMap<String, List<String>>  mapInfo = Resourceloader.getResourceloader().getMapInfo();
-        //System.out.println(ObjectController.getObjController());
         HashMap<String, List<SuperObject>> map = ObjectController.getObjController().getMap();
         //创建地板
         for(int i=0;i<rows;i++){
             for(int j=0;j<cols;j++){
-                //ImageIcon imageIcon = MapFloor.createMapFloor(i, j, objectInfo.get("10")).getImageIcon();
                 map.get("floor").add(MapFloor.createMapFloor(i, j, objectInfo.get("01")));
             }
         }
+
         //创建物品与人物
         for(int i=0;i<rows;i++){
             List<String> objs = mapInfo.get(String.valueOf(i+1));
@@ -105,7 +104,7 @@ public class GameMap {
                 }
             }
         }
-        //TODO:
+        initPlayer(1,1);
     }
 
     public boolean isBlockWalkable(int i, int j){
@@ -142,13 +141,13 @@ public class GameMap {
         }
     }
 
-   /*  private void initPlayer(int i, int j){
+   private void initPlayer(int i, int j){
         List<SuperObject> playerList = ObjectController.getObjController().getMap().get("player");
-        HashMap<String, List<String>> objectInfo = ResourceLoader.getResourceLoader().getMapObjectInfo();
+        HashMap<String, List<String>> objectInfo = Resourceloader.getResourceloader().getMapObjectInfo();
         List<String> playInfo = objectInfo.get("player");
         Player player = Player.createPlayer(i, j, playInfo);
         playerList.add(player);
-    }*/
+    }
 
     public boolean outOfMap(int i, int j){
         if(i < 0 || i >= rows || j < 0 || j >= cols){
