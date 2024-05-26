@@ -15,6 +15,8 @@ public class Player extends Character{
     
     private ImageIcon img;
     private boolean isShowing;
+    int moveX = 0;
+    int moveY = 0;
 
     public Player(int x, int y, int width, int height, ImageIcon img) {
         super(x, y, width, height);
@@ -37,8 +39,8 @@ public class Player extends Character{
         if(isShowing==false){
             return;
         }
-        //g.drawImage(img.getImage(), getx(), gety(),getx()+getw(), gety()+geth(), (moveX/6)*100+27, moveY*100+43,(moveX/6)*100+72, moveY*100+99, null);
-        g.drawImage(img.getImage(), getx(), gety(),getx()+getw(), gety()+geth(), null);
+        g.drawImage(img.getImage(), getx(), gety(),getx()+getw(), gety()+geth(),0 , 0, img.getIconWidth(), img.getIconHeight(), null);
+        //g.drawImage(img.getImage(), getx(), gety(),getx()+getw(), gety()+geth(), null);
 
     }
     //collision Detect

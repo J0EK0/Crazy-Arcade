@@ -60,17 +60,20 @@ public class InitialPanel extends JPanel {
         startLabel.setBounds(0, 0, 1200, 900);
         startLabel.setVisible(true);
         this.add(startLabel);
+        
         playerLabel = new JLabel();
         playerLabel.setIcon(resizedIcon6);
         playerLabel.setVisible(true);
         playerLabel.setBounds(800, 300, 240, 80);
         playerLabel.setVisible(false);
         this.add(playerLabel);
+
         introButton = new JButton();
         introButton.setIcon(resizedIcon2);
         introButton.setVisible(true);
         introButton.setBounds(width/6, height/3, 240, 80);
         introButton.setVisible(true);
+        
         this.add(introButton);
         changeButton = new JButton();
         changeButton.setIcon(resizedIcon4);

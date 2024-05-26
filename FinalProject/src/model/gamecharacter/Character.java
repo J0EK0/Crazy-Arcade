@@ -1,5 +1,6 @@
 package model.gamecharacter;
 
+import java.awt.*;
 import model.gameobject.SuperObject;
 
 public class Character extends SuperObject{
@@ -14,8 +15,7 @@ public class Character extends SuperObject{
 
     public Character(int x, int y, int width, int height) {
         super(x, y, width, height);
-        //this.img = new ImageIcon("FinalProject/src/image/character1.png");
-        
+
         dead = false;
         speed = 5;
         bubbleNum = 10;
@@ -34,4 +34,12 @@ public class Character extends SuperObject{
     public void setScore(int score){this.score = score;}
     public int getScore(){return score;}
     
+    @Override
+    public void move(){};
+
+    @Override
+    public void destroy(){};
+
+    @Override
+    public void showObject(Graphics g){};
 }
