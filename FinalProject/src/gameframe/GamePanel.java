@@ -1,9 +1,7 @@
 package gameframe;
 
-<<<<<<< HEAD
 import controller.*;
 import java.awt.*;
-=======
 import controller.GameController;
 import controller.ObjectController;
 import main.StartGame;
@@ -21,20 +19,14 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyListener;
 import java.security.PublicKey;
->>>>>>> d16430c (0)
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
-<<<<<<< HEAD
 import javax.swing.*;
 import model.gameobject.SuperObject;
+import thread.GameKeyListener;
 
-public class GamePanel extends JPanel implements Runnable{
-    private boolean running;
-    public GamePanel() {
-        super();
-=======
 
 public class GamePanel extends JPanel implements Runnable {
     //public static PlayGameMusic playmusic = new PlayGameMusic();
@@ -48,6 +40,7 @@ public class GamePanel extends JPanel implements Runnable {
     private JButton gameControl;
     private JButton backMain;
     private boolean running;
+    private GameKeyListener keyListener;
 
 
     public GamePanel(){
@@ -62,12 +55,15 @@ public class GamePanel extends JPanel implements Runnable {
         }else {
             playmusic.continues();
         }*/
->>>>>>> d16430c (0)
         init();
         running = true;
+
+        keyListener = new GameKeyListener();
+        this.addGameKeyListener();
+        System.err.println("start game key listener");
+
     }
 
-<<<<<<< HEAD
     private void init(){
 
     }
@@ -77,7 +73,6 @@ public class GamePanel extends JPanel implements Runnable {
         Gamepaint(g);
     }
 
-=======
     private void  init(){
 
         stopMusic = new JButton();
@@ -223,7 +218,6 @@ public class GamePanel extends JPanel implements Runnable {
         GamePaint(g);
     }
 
->>>>>>> d16430c (0)
     @Override
     public void run() {
         while (running){
@@ -232,7 +226,6 @@ public class GamePanel extends JPanel implements Runnable {
             }catch (Exception e){
                 e.printStackTrace();
             }
-<<<<<<< HEAD
             if(GameController.isGameRunning()){
                 this.repaint();
             }
@@ -250,86 +243,4 @@ public class GamePanel extends JPanel implements Runnable {
             }
         }
     }
-=======
-            /*if(GameController.isGameRunning()){
-                this.repaint();
-            }*/
-        }
-    }
-
-    public void GamePaint(Graphics g){
-        HashMap<String, List<SuperObject>> map = ObjectController.getObjController().getMap();
-        Set<String> sortItems = new TreeSet<String>(ObjectController.getObjController().getMapObjCmp());
-        sortItems.addAll(map.keySet());
-        for(String key:sortItems){
-            List<SuperObject> list = map.get(key);
-            for(int i=0;i<list.size();i++){
-                list.get(i).showObject(g);
-            }
-        }
-        /*if(map.get("player").size() > 0){
-            Player player = (Player) map.get("player").get(0);
-            g.setFont(new Font("宋体", Font.BOLD, 24));
-            if(StartPanel.playerIndex == 1){
-                g.drawString("Duck", 1080 , 100);
-            }else {
-                g.drawString("Hero", 1080, 100);
-            }
-            g.drawString("泡泡数量:   "+String.valueOf(player.getBubbleNum()), 950, 180);
-            g.drawString("泡泡威力:   " + String.valueOf(player.getBubblePower()), 950, 210);
-            g.setFont(new Font("宋体", Font.BOLD, 18));
-            g.drawString("数量:  "+String.valueOf(player.getMagicBubbleCount()), 1030, 350);
-            g.drawString("数量:  " + String.valueOf(player.getMagicPowerCount()), 1030, 430);
-            g.drawString("数量:  "+String.valueOf(player.getMagicSaveCount()), 1030, 510);
-
-            int gameTime = GameThread.getGameTime()/1000;
-            int minute = gameTime / 60;
-            int seconds = gameTime % 60;
-            String min = "0" + String.valueOf(minute);
-            String sec;
-            if(seconds < 10){
-                sec = "0" + String.valueOf(seconds);
-            }else {
-                sec = String.valueOf(seconds);
-            }
-            g.setFont(new Font("Times New Roman", Font.BOLD, 36));
-            g.drawString("Time: "+ min + ":" + sec, 950, 650);
-            if(player.isDying()){
-                g.setFont(new Font("Times New Roman", Font.BOLD, 24));
-                g.setColor(Color.red);
-                g.drawString("You are dying!!!", 950, 720);
-                g.drawString("Time Remaining: "+ String.valueOf(player.getDyingTime()/1000) + "s", 950, 760);
-                g.setColor(Color.BLACK);
-            }
-        }*/
-    }
-
-    /*public void addGameKeyListener(){
-        if(keyListener != null){
-            System.out.println("oj");
-            this.removeKeyListener(keyListener);
-            this.addKeyListener(keyListener);
-        }
-    }
-
-    public void removeGameKeyListener(){
-        this.removeKeyListener(keyListener);
-    }
-
-    public KeyListener getGameKeyListener(){
-        return keyListener;
-    }
-
-    public void setGameKeyListener(GameKeyListener keyListener){
-        this.keyListener = keyListener;
-    }
-
-    public void getFocus(){
-        this.requestFocus();
-    }
-
-    public static PlayGameMusic getPlaymusic(){
-        return playmusic;
-    }*/
->>>>>>> d16430c (0)
 }

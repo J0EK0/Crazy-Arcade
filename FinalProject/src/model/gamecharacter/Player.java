@@ -50,5 +50,24 @@ public class Player extends Character{
     }
 
     //move
+    public void move(char wasd){
+        
+        switch (wasd) {
+            case 'w':
+                sety(gety() - MapObject.PIXEL_Y);
+                break;
+            case 's':
+                sety(gety() + MapObject.PIXEL_Y);
+                break;
+            case 'a':
+                setx(getx() - MapObject.PIXEL_X);
+                break;
+            case 'd':
+                setx(getx() + MapObject.PIXEL_X);
+                break;
+            default:
+                break;
+        }
+    }
 
 }
