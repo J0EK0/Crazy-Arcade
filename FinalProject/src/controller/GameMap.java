@@ -119,6 +119,28 @@ public class GameMap {
                 return true;
         }
     }
+    public boolean isObstacle(int i, int j){
+        if(outOfMap(i, j)){
+            return  true;
+        }
+        String mapObject = mapList.get(i).get(j);
+        if(MapObjectType.valueOf(mapObject.charAt(0))==MapObjectType.OBSTACLE){
+            return true;
+        }else {
+            return false;
+        }
+    }
+    public boolean isFragility(int i, int j){
+        if(outOfMap(i, j)){
+            return true;
+        }
+        String mapObject = mapList.get(i).get(j);
+        if(MapObjectType.valueOf(mapObject.charAt(0))==MapObjectType.FRAGILITY){
+            return true;
+        }else {
+            return false;
+        }
+    }
 
    /*  private void initPlayer(int i, int j){
         List<SuperObject> playerList = ObjectController.getObjController().getMap().get("player");
