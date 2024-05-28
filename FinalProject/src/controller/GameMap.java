@@ -158,30 +158,6 @@ public class GameMap {
         }
     }
 
-    /*public boolean isObstacle(int i, int j){
-        if(outOfMap(i, j)){
-            return  true;
-        }
-        String mapObject = mapList.get(i).get(j);
-        if(MapObjectType.valueOf(mapObject.charAt(0))==MapObjectType.OBSTACLE){
-            return true;
-        }else {
-            return false;
-        }
-    }
-
-    public boolean isFragility(int i, int j){
-        if(outOfMap(i, j)){
-            return true;
-        }
-        String mapObject = mapList.get(i).get(j);
-        if(MapObjectType.valueOf(mapObject.charAt(0))==MapObjectType.FRAGILITY){
-            return true;
-        }else {
-            return false;
-        }
-    }
-
     public boolean isBubble(int i, int j){
         if(outOfMap(i, j)){
             return true;
@@ -192,7 +168,7 @@ public class GameMap {
         }else {
             return false;
         }
-    }*/
+    }
 
     public List<List<String>> getMapList(){
         return mapList;

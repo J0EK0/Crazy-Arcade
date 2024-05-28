@@ -26,13 +26,13 @@ public class GameThread extends Thread{
 
     @Override
     public void run() {
-        /*while (!over){
+        while (!over){
             running = true;
             loadMap();
-            //runGame();
+            runGame();
             //gameClean();
             //StartGame.changePanel("over");
-        }*/
+        }
         running = true;
         loadMap();
     }
@@ -77,13 +77,11 @@ public class GameThread extends Thread{
     }
 
     private void ExplodeFragility(){
-        List<SuperObject> playerList = ObjectController.getObjController().getMap().get("player");
         List<SuperObject> explodeList = ObjectController.getObjController().getMap().get("bubbleExplode");
         List<SuperObject> fragilityList = ObjectController.getObjController().getMap().get("fragility");
         for(int i = 0;i<explodeList.size();i++){
             for(int j=0;j<fragilityList.size();j++){
                 if(explodeList.get(i).collision(fragilityList.get(j))){
-                    System.out.println(j);
                     MapFragility fragility = (MapFragility)fragilityList.get(j);
                     fragility.setDestroyed(true);
                 }
