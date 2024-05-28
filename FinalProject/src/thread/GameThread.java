@@ -4,7 +4,7 @@ import controller.GameController;
 import controller.ObjectController;
 
 import main.StartGame;
-
+import gameobject.MapFragility;
 import resourceloader.Resourceloader;
 import model.gameobject.SuperObject;
 
@@ -71,7 +71,7 @@ public class GameThread extends Thread{
     }
 
     public void gameClean(){
-        GamePanel.getPlaymusic().stops();
+        //GamePanel.getPlaymusic().stops();
         ObjectController.getObjController().gameClean();
     }
 

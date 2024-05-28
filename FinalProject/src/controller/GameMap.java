@@ -96,7 +96,7 @@ public class GameMap {
                         map.get("fragility").add(MapFragility.createMapFragility(i, j, objectInfo.get(type)));
                         break;
                     case  '3':
-                        //map.get("gameprops").add(MapGameProps.createMapGameProps(i, j));
+                        map.get("gameprops").add(MapGameProps.createMapGameProps(i, j));
                     case  '6':
                         //initPlayer(i, j);
                     default:
