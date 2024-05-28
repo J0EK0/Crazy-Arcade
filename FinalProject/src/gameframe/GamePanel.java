@@ -61,14 +61,14 @@ public class GamePanel extends JPanel implements Runnable{
 
     private void  init(){
          magicWei = new JButton();
-         ImageIcon weiImg = Resourceloader.getResourceloader().getimageInfo().get("magicBox1");
+         ImageIcon weiImg = Resourceloader.getResourceloader().getimageInfo().get("jiuming");
          weiImg.setImage(weiImg.getImage().getScaledInstance(70, 70, Image.SCALE_SMOOTH));
          magicWei.setIcon(weiImg);
          magicWei.setBounds(950, 390, 70, 70);
          magicWei.addActionListener(e -> weiButtonActionPerformed(e));
 
          magicJiu = new JButton();
-         ImageIcon jiuImg = Resourceloader.getResourceloader().getimageInfo().get("magicBox2");
+         ImageIcon jiuImg = Resourceloader.getResourceloader().getimageInfo().get("weili");
          jiuImg.setImage(jiuImg.getImage().getScaledInstance(70, 70, Image.SCALE_SMOOTH));
          magicJiu.setIcon(jiuImg);
          magicJiu.setBounds(950, 470, 70, 70);
