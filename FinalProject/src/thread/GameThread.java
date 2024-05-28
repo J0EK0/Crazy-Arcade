@@ -4,7 +4,7 @@ import controller.GameController;
 import controller.ObjectController;
 
 import main.StartGame;
-import gameobject.MapFragility;
+import model.gameobject.MapFragility;
 import resourceloader.Resourceloader;
 import model.gameobject.SuperObject;
 
