@@ -2,6 +2,7 @@ package controller;
 
 import java.util.*;
 
+import model.gameobject.MapObject;
 import model.gameobject.SuperObject;
 import resourceloader.Resourceloader;
 public class ObjectController {
@@ -69,6 +70,16 @@ public class ObjectController {
     public void loadMap(){
         gameMap.createMap();
     }
+    public GameMap getGameMap(){
+        return gameMap;
+    }
+    public static List<Integer> getPosIndex(int x, int y) {
+    List<Integer> posIndex = new ArrayList<>();
+    posIndex.add((y - GameMap.getBiasY()) / MapObject.PIXEL_Y);
+    posIndex.add((x - GameMap.getBiasX()) / MapObject.PIXEL_X);
+    return posIndex;
+    }
+
     /*public void gameClean(){
         ObjectController.getObjController().getMap().get("player").clear();
         ObjectController.getObjController().getMap().get("floor").clear();
