@@ -26,16 +26,14 @@ public class GameThread extends Thread{
 
     @Override
     public void run() {
-        /*while (!over){
+        while (!over){
             running = true;
-            //loadMap();
-            //runGame();
+            loadMap();
+            runGame();
             //gameClean();
             //StartGame.changePanel("over");
-        }*/
-        running = true;
-        loadMap();
-        runGame();
+        }
+        
     }
 
     private void loadMap(){
@@ -58,7 +56,7 @@ public class GameThread extends Thread{
                         }
                     }
                 }
-                //ExplodeFragility();
+                ExplodeFragility();
                 //playerGameprops();
                 //playerExplode();
                 //bubbleExplodeSerial();

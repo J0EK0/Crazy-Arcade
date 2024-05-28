@@ -34,7 +34,7 @@ public class MapBubble extends MapObject {
         timer.schedule(task, 3000);
     }
     public void destroy(){
-        if(isalive()){
+        if(!isalive()){
             List<SuperObject> bubbleExplode = ObjectController.getObjController().getMap().get("bubbleExplode");
             bubbleExplode.add(BubbleExplode.createBubbleExplode(getx(), gety(), power));
         }
