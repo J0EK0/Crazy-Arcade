@@ -1,5 +1,6 @@
 package model.gameobject;
 
+import controller.GameMap;
 import controller.ObjectController;
 import java.util.HashMap;
 import java.util.List;
@@ -36,7 +37,11 @@ public class MapFragility extends MapObject{
         HashMap<String, List<SuperObject>> objects = ObjectController.getObjController().getMap();
         int i = ObjectController.getPosIndex(getx(), gety()).get(0);
         int j = ObjectController.getPosIndex(getx(), gety()).get(1);
-        
+        GameMap gameMap = ObjectController.getObjController().getGameMap();
+        gameMap.setMapListObj(i, j, MapObjectType.FLOOR);
+        objects.get("gameprops").add(MapGameProps.createMapGameProps(i, j));
+        setDestroyed(false);
+        setalive(false);
     }
 
     public boolean isDestroyed(){

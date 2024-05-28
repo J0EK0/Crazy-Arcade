@@ -6,7 +6,6 @@ import java.util.List;
 import model.gamecharacter.Player;
 import model.gameobject.*;
 import resourceloader.Resourceloader;
-
 public class GameMap {
     private static int width;
     private static int height;
@@ -199,9 +198,9 @@ public class GameMap {
         return mapList;
     }
 
-    /*public void setMapListObj(int i, int j, MapObjectType Objtype){
+    public void setMapListObj(int i, int j, MapObjectType Objtype){
         mapList.get(i).set(j, Objtype.getVal()+"");
-    }*/
+    }
 
     public static int getBiasX() {
         return biasX;
