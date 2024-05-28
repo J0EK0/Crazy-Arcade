@@ -1,5 +1,7 @@
 package model.gameobject;
 
+import controller.ObjectController;
+import java.util.HashMap;
 import java.util.List;
 import javax.swing.*;
 import resourceloader.Resourceloader;
@@ -31,7 +33,8 @@ public class MapFragility extends MapObject{
 
     @Override
     public void destroy() {
-        
+        HashMap<String, List<SuperObject>> objects = ObjectController.getObjController().getMap();
+
     }
 
     public boolean isDestroyed(){
