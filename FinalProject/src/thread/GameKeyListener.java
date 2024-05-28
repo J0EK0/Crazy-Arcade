@@ -23,8 +23,8 @@ public class GameKeyListener implements KeyListener{
     public void keyReleased(KeyEvent e) {
         playerList = ObjectController.getObjController().getMap().get("player");
         Player player = (Player) playerList.get(0);
-
         
+        player.setmoveable(true);
     }
 
     @Override

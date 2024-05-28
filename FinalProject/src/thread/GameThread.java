@@ -6,7 +6,8 @@ import controller.ObjectController;
 import main.StartGame;
 import model.gameobject.MapFragility;
 import resourceloader.Resourceloader;
-import model.gameobject.SuperObject;
+import model.gameobject.*;
+import model.gamecharacter.Player;
 
 import java.util.HashMap;
 import java.util.List;
@@ -144,13 +145,13 @@ public class GameThread extends Thread{
         if(survivalNum == 0){
             running = false;
             over = true;
-            OverPanel.getResultButton().setIcon(ResourceLoader.getResourceLoader().getImageInfo().get("fail"));
+            OverPanel.getResultButton().setIcon(Resourceloader.getResourceloader().getImageInfo().get("fail"));
         }
 
         if(survivalNum > 0 && gameTime <= 0){
             running = false;
             over = true;
-            OverPanel.getResultButton().setIcon(ResourceLoader.getResourceLoader().getImageInfo().get("win"));
+            OverPanel.getResultButton().setIcon(Resourceloader.getResourceloader().getImageInfo().get("win"));
         }
     }
 

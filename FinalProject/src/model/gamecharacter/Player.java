@@ -19,10 +19,12 @@ public class Player extends Character{
     private boolean isShowing;
     int moveX = 0;
     int moveY = 0;
+    private boolean moveable;
 
     public Player(int x, int y, int width, int height, ImageIcon img) {
         super(x, y, width, height);
         this.img = img;
+        moveable = true;
         isShowing = true;
     }
 
@@ -73,9 +75,10 @@ public class Player extends Character{
         }
         boolean b1 = collisiondetect(tempx, tempy, ObjectController.getObjController().getMap().get("obstacle"));
         boolean b2 = collisiondetect(tempx, tempy, ObjectController.getObjController().getMap().get("fragility"));
-        if(b1 && b2) {
+        if(b1 && b2 && moveable) {
             setx(tempx);
             sety(tempy);
+            moveable = false;
         }
     }
 
@@ -90,4 +93,8 @@ public class Player extends Character{
         return true;
     }
 
+    public void setmoveable(boolean moveable){
+        this.moveable = moveable;
+    }
+    public boolean getmoveable(){ return moveable;}
 }
