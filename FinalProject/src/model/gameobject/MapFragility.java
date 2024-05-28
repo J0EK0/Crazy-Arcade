@@ -34,14 +34,18 @@ public class MapFragility extends MapObject{
 
     @Override
     public void destroy() {
-        HashMap<String, List<SuperObject>> objects = ObjectController.getObjController().getMap();
-        int i = ObjectController.getPosIndex(getx(), gety()).get(0);
-        int j = ObjectController.getPosIndex(getx(), gety()).get(1);
-        GameMap gameMap = ObjectController.getObjController().getGameMap();
-        gameMap.setMapListObj(i, j, MapObjectType.FLOOR);
-        objects.get("gameprops").add(MapGameProps.createMapGameProps(i, j));
-        setDestroyed(false);
-        setalive(false);
+        if(!isDestroyed()){
+            return;
+        }else {
+            HashMap<String, List<SuperObject>> map = ObjectController.getObjController().getMap();
+            int i = ObjectController.getPosIndex(getx(), gety()).get(0);
+            int j = ObjectController.getPosIndex(getx(), gety()).get(1);
+            GameMap gameMap = ObjectController.getObjController().getGameMap();
+            gameMap.setMapListObj(i, j, MapObjectType.FLOOR);
+            map.get("gameprops").add(MapGameProps.createMapGameProps(i, j));
+            setDestroyed(false);
+            setalive(false);
+        }
     }
 
     public boolean isDestroyed(){

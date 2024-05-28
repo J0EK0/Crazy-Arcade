@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import javax.swing.*;
 import model.gamecharacter.Character;
+import model.gameobject.MapBubble;
 import model.gameobject.MapObject;
 import model.gameobject.SuperObject;
 import resourceloader.Resourceloader;
@@ -50,7 +51,14 @@ public class Player extends Character{
     //collision Detect
 
     public void plantBubble(){
-
+        int i = ObjectController.getPosIndex(getx(), gety()).get(0);
+        int j = ObjectController.getPosIndex(getx(), gety()).get(1);
+        GameMap gamemap = ObjectController.getObjController().getGameMap();
+        if(!gamemap.isBubble(i,j)){
+            List<SuperObject> bubble = ObjectController.getObjController().getMap().get("bubble");
+            List<String> bubbleinfo = Resourceloader.getResourceloader().getMapObjectInfo().get("90");
+            bubble.add(MapBubble.createMapBubble(i, j, bubbleinfo, 1));
+        }
     }
 
     //move

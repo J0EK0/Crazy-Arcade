@@ -26,15 +26,16 @@ public class GameThread extends Thread{
 
     @Override
     public void run() {
-        while (!over){
+        /*while (!over){
             running = true;
-            loadMap();
-            runGame();
+            //loadMap();
+            //runGame();
             //gameClean();
             //StartGame.changePanel("over");
-        }
+        }*/
         running = true;
         loadMap();
+        runGame();
     }
 
     private void loadMap(){
@@ -44,6 +45,7 @@ public class GameThread extends Thread{
     private void runGame(){
         gameTime = 120*1000;
         while (running){
+            //System.out.println("runGame");
             if(GameController.isGameRunning()){
                 HashMap<String, List<SuperObject>> map = ObjectController.getObjController().getMap();
                 Set<String> objSet = map.keySet();
@@ -56,11 +58,11 @@ public class GameThread extends Thread{
                         }
                     }
                 }
-                ExplodeFragility();
-                playerGameprops();
-                playerExplode();
-                bubbleExplodeSerial();
-                gameResult();
+                //ExplodeFragility();
+                //playerGameprops();
+                //playerExplode();
+                //bubbleExplodeSerial();
+                //gameResult();
                 gameTime = gameTime - refreshTime;
             }
             try{

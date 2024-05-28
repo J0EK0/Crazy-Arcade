@@ -1,11 +1,10 @@
 package model.gameobject;
 import controller.ObjectController;
-import resourceloader.Resourceloader;
-
-import javax.swing.*;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
+import javax.swing.*;
+import resourceloader.Resourceloader;
 public class MapBubble extends MapObject {
     private int power;
     public MapBubble(int i, int j, ImageIcon img, int sx1, int sy1, int sx2, int sy2, int scaleX, int scaleY, int power){
@@ -23,6 +22,7 @@ public class MapBubble extends MapObject {
         return  new MapBubble(i, j, img, sx1, sy1, sx2, sy2, scaleX, scaleY, power);
 
     }
+    @Override
     public void move(){
         Timer timer = new Timer(true);
         TimerTask task = new TimerTask() {

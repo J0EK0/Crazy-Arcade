@@ -98,14 +98,13 @@ public class GameMap {
                     case  '3':
                         map.get("gameprops").add(MapGameProps.createMapGameProps(i, j));
                     case  '6':
-                        //initPlayer(i, j);
+                        initPlayer(i, j);
                     default:
                         break;
 
                 }
             }
         }
-        initPlayer(1,1);
     }
 
     public boolean isBlockWalkable(int i, int j){
