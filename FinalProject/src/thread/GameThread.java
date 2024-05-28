@@ -59,7 +59,7 @@ public class GameThread extends Thread{
                 ExplodeFragility();
                 playerGameprops();
                 //playerExplode();
-                //bubbleExplodeSerial();
+                bubbleExplodeSerial();
                 //gameResult();
                 gameTime = gameTime - refreshTime;
             }
