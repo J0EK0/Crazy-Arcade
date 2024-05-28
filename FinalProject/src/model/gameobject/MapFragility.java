@@ -34,7 +34,9 @@ public class MapFragility extends MapObject{
     @Override
     public void destroy() {
         HashMap<String, List<SuperObject>> objects = ObjectController.getObjController().getMap();
-
+        int i = ObjectController.getPosIndex(getx(), gety()).get(0);
+        int j = ObjectController.getPosIndex(getx(), gety()).get(1);
+        
     }
 
     public boolean isDestroyed(){
