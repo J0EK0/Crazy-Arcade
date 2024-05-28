@@ -54,10 +54,13 @@ public class Player extends Character{
     }
 
     //move
-    public void move(char wasd){
+    public void act(char wasd){
         int tempx = getx();
         int tempy = gety();
         switch (wasd) {
+            case ' ':
+                plantBubble();
+                break;
             case 'w':
                 tempy -= MapObject.PIXEL_Y;
                 break;
