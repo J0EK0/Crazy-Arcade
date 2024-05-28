@@ -58,7 +58,7 @@ public class GameThread extends Thread{
                         }
                     }
                 }
-                //ExplodeFragility();
+                ExplodeFragility();
                 //playerGameprops();
                 //playerExplode();
                 //bubbleExplodeSerial();

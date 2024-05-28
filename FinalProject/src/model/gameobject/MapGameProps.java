@@ -7,7 +7,8 @@ import javax.swing.*;
 import resourceloader.Resourceloader;
 
 public class MapGameProps extends MapObject{
-    private boolean destroyed;
+    private String type; 
+    private boolean eaten;
     private static HashMap<String, List<String>> objectInfo = Resourceloader.getResourceloader().getMapObjectInfo();
     //private static HashMap<String, Integer> propsChance = new HashMap<String, Integer>();
     /*static {
@@ -15,9 +16,10 @@ public class MapGameProps extends MapObject{
         propsChance.put("1", 25);
         propsChance.put("2", 15);
     }*/
-    public MapGameProps(int i, int j, ImageIcon img, int sx1, int sy1, int sx2, int sy2, int scaleX, int scaleY){
+    public MapGameProps(int i, int j, ImageIcon img, int sx1, int sy1, int sx2, int sy2, int scaleX, int scaleY, String type){
         super(i, j, img, sx1, sy1, sx2, sy2, scaleX, scaleY);
-        destroyed = false;
+        eaten = false;
+        this.type = type;
     }
     
     /*public static String getChanceProps(){
@@ -53,12 +55,7 @@ public class MapGameProps extends MapObject{
         int sy2 = Integer.valueOf(propsData.get(4));
         int scaleX = Integer.valueOf(propsData.get(6));
         int scaleY = Integer.valueOf(propsData.get(7));
-        return  new MapGameProps(i, j, img, sx1, sy1, sx2, sy2, scaleX, scaleY);
-    }
-
-    @Override
-    public void update() {
-        destroy();
+        return  new MapGameProps(i, j, img, sx1, sy1, sx2, sy2, scaleX, scaleY, propType);
     }
 
     @Override
@@ -66,11 +63,4 @@ public class MapGameProps extends MapObject{
         
     }
 
-    public boolean isDestroyed(){
-        return destroyed;
-    }
-
-    public void setDestroyed(boolean destroyed){
-        this.destroyed=destroyed;
-    }
 }
