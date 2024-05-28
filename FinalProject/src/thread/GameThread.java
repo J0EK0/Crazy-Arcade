@@ -57,7 +57,7 @@ public class GameThread extends Thread{
                     }
                 }
                 ExplodeFragility();
-                //playerGameprops();
+                playerGameprops();
                 //playerExplode();
                 //bubbleExplodeSerial();
                 //gameResult();
@@ -96,7 +96,7 @@ public class GameThread extends Thread{
             for(int j = 0; j < gamepropsList.size(); j++){
                 if(gamepropsList.get(j).collision(playerList.get(i))){
                     MapGameProps gameProps = (MapGameProps) gamepropsList.get(j);
-                    gameProps.setPlayerIndex(i);
+                    //gameProps.setPlayerIndex(i);
                     gameProps.setEaten(true);
                 }
             }

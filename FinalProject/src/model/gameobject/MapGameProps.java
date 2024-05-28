@@ -1,14 +1,18 @@
 package model.gameobject;
 
+import controller.GameMap;
+import controller.ObjectController;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 import javax.swing.*;
+import model.gamecharacter.Player;
 import resourceloader.Resourceloader;
 
 public class MapGameProps extends MapObject{
     private String type; 
     private boolean eaten;
+    private int playerIndex;
     private static HashMap<String, List<String>> objectInfo = Resourceloader.getResourceloader().getMapObjectInfo();
     //private static HashMap<String, Integer> propsChance = new HashMap<String, Integer>();
     /*static {
@@ -60,7 +64,38 @@ public class MapGameProps extends MapObject{
 
     @Override
     public void destroy() {
-        
+        if(eaten){
+            GameMap gameMap = ObjectController.getObjController().getGameMap();
+            int i = ObjectController.getPosIndex(getx(), gety()).get(0);
+            int j = ObjectController.getPosIndex(getx(), gety()).get(1);
+            gameMap.setMapListObj(i, j, MapObjectType.FLOOR);
+            List<SuperObject> playerList = ObjectController.getObjController().getMap().get("player");
+            Player player = (Player)playerList.get(playerIndex);
+            switch (type){
+                case "31":
+                    //player.setMagicPowerCount(player.getMagicPowerCount() + 1);
+                    break;
+                case "32":
+                    //player.setMagicSaveCount(player.getMagicSaveCount() + 1);
+                    break;
+                default:
+                    break;
+            }
+            eaten = false;
+            setalive(false);
+        }
     }
 
+
+    public boolean isEaten(){
+        return eaten;
+    }
+
+    public void setEaten(boolean eat) {
+        this.eaten = eat;
+    }
+
+    public void setPlayerIndex(int playerIndex){
+        this.playerIndex = playerIndex;
+    }
 }
