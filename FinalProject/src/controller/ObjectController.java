@@ -15,7 +15,6 @@ public class ObjectController {
     private HashMap<String, Integer> priority;
     
     public ObjectController() {
-       //System.out.println("new2");
         init();
     }
 
@@ -67,6 +66,14 @@ public class ObjectController {
             }
         };
     }
+
+    public static List<Integer> getPosIndex(int x, int y){
+        List<Integer> posIndex = new ArrayList<>();
+        posIndex.add((y-GameMap.getBiasY())/MapObject.PIXEL_Y);
+        posIndex.add((x-GameMap.getBiasX())/MapObject.PIXEL_X);
+        return posIndex;
+    }
+    
     public void loadMap(){
         gameMap.createMap();
     }
