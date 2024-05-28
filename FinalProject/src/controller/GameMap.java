@@ -145,7 +145,7 @@ public class GameMap {
         List<SuperObject> playerList = ObjectController.getObjController().getMap().get("player");
         HashMap<String, List<String>> objectInfo = Resourceloader.getResourceloader().getMapObjectInfo();
         List<String> playInfo = objectInfo.get("player"+String.valueOf(index));
-        Player player = Player.createPlayer(i, j, playInfo);
+        Player player = Player.createPlayer(i, j, playInfo, playerList.size());
         playerList.add(player);
     }
 
