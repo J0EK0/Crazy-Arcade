@@ -1,12 +1,14 @@
 package model.gamecharacter;
 
 import controller.GameMap;
+import controller.ObjectController;
 import java.awt.*;
 import java.util.HashMap;
 import java.util.List;
 import javax.swing.*;
 import model.gamecharacter.Character;
 import model.gameobject.MapObject;
+import model.gameobject.SuperObject;
 import resourceloader.Resourceloader;
 
 
@@ -51,23 +53,41 @@ public class Player extends Character{
 
     //move
     public void move(char wasd){
-        
+        int tempx = getx();
+        int tempy = gety();
         switch (wasd) {
             case 'w':
-                sety(gety() - MapObject.PIXEL_Y);
+                tempy -= MapObject.PIXEL_Y;
                 break;
             case 's':
-                sety(gety() + MapObject.PIXEL_Y);
+                tempy += MapObject.PIXEL_Y;
                 break;
             case 'a':
-                setx(getx() - MapObject.PIXEL_X);
+                tempx -= MapObject.PIXEL_X;
                 break;
             case 'd':
-                setx(getx() + MapObject.PIXEL_X);
+                tempx += MapObject.PIXEL_X; 
                 break;
             default:
                 break;
         }
+        boolean b1 = collisiondetect(tempx, tempy, ObjectController.getObjController().getMap().get("obstacle"));
+        boolean b2 = collisiondetect(tempx, tempy, ObjectController.getObjController().getMap().get("fragility"));
+        if(b1 && b2) {
+            setx(tempx);
+            sety(tempy);
+        }
+    }
+
+    private boolean collisiondetect(int tempx, int tempy, List<SuperObject> objects){
+        Rectangle rect = new Rectangle(tempx, tempy, getw(), geth());
+        for(SuperObject obj : objects){
+            Rectangle objrect = new Rectangle(obj.getx(), obj.gety(), obj.getw(),obj.geth());
+            if(rect.intersects(objrect)){
+                return false;
+            }
+        }
+        return true;
     }
 
 }

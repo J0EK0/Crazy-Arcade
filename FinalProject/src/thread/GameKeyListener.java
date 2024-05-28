@@ -16,19 +16,7 @@ public class GameKeyListener implements KeyListener{
         Player player = (Player) playerList.get(0);
 
         char code = event.getKeyChar();
-
-        switch (code) {
-            case 'w':
-                break;
-            case 's':
-                break;
-            case 'a':
-                break;
-            case 'd':
-                break;
-            default:
-                break;
-        }
+        player.move(code);
     }
 
     @Override
@@ -36,8 +24,7 @@ public class GameKeyListener implements KeyListener{
         playerList = ObjectController.getObjController().getMap().get("player");
         Player player = (Player) playerList.get(0);
 
-        char code = e.getKeyChar();
-        player.move(code);
+        
     }
 
     @Override
