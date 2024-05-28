@@ -118,12 +118,8 @@ public class InitialPanel extends JPanel {
         //this.add(introButton);
         this.setVisible(true);
         this.setOpaque(true);
-<<<<<<< HEAD
         HashMap<String, List<String>> objectInfo = Resourceloader.getResourceloader().getMapObjectInfo();
 
-=======
-        //HashMap<String, List<String>> objectInfo = Resourceloader.getResourceloader().getMapObjectInfo();
->>>>>>> d16430c (0)
         //System.out.println(objectInfo.get("10"));
         /*for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
@@ -135,29 +131,11 @@ public class InitialPanel extends JPanel {
                 }
             }
         }*/
-<<<<<<< HEAD
     }
     private void startButtonActionPerformed(ActionEvent e){
         System.err.println("Start");
         StartGame.startgame();
 
-=======
-
-        
-       // run();
-    }
-     
-    /*public void addImageLabel(ImageIcon icon, int x, int y) {
-        JLabel label = new JLabel(icon);
-        label.setBounds(x, y, icon.getIconWidth(), icon.getIconHeight());
-        this.add(label);
-        this.repaint(); // Refresh panel to display newly added label
-    }
-    */
-    private void startButtonActionPerformed(ActionEvent e){
-        System.out.println("start");
-        //StartGame.startgame();
->>>>>>> d16430c (0)
     }
     private void selectButtonActionPerformed(ActionEvent e){
         System.out.println("select");
@@ -196,7 +174,6 @@ public class InitialPanel extends JPanel {
         layeredPane.revalidate();
        // System.out.println("start");
         //StartGame.startgame();
-<<<<<<< HEAD
     }
     public void run() {
         this.repaint();
@@ -213,7 +190,5 @@ public class InitialPanel extends JPanel {
                 list.get(i).showObject(g);
             }
         }
-=======
->>>>>>> d16430c (0)
     }
 }

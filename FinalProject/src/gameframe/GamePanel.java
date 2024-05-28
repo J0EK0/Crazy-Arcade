@@ -11,7 +11,7 @@ import model.gameobject.MapObject;
 import model.gameobject.SuperObject;
 import resourceloader.Resourceloader;
 //import Thread.GameKeyListener;
-import Thread.Gamethread;
+import thread.GameThread;
 //import Thread.PlayGameMusic;
 
 import javax.swing.*;
@@ -59,15 +59,10 @@ public class GamePanel extends JPanel implements Runnable {
         running = true;
 
         keyListener = new GameKeyListener();
-        this.addGameKeyListener();
-        System.err.println("start game key listener");
+        //this.addGameKeyListener();
+        //System.err.println("start game key listener");
 
     }
-
-    private void init(){
-
-    }
-
     public void paint(Graphics g){
         super.paint(g);
         Gamepaint(g);
@@ -212,11 +207,6 @@ public class GamePanel extends JPanel implements Runnable {
             GameController.setGameRunning(true);
         }
     }*/
-
-    public void paint(Graphics g){
-        super.paint(g);
-        GamePaint(g);
-    }
 
     @Override
     public void run() {
