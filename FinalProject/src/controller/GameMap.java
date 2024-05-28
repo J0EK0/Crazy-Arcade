@@ -98,7 +98,7 @@ public class GameMap {
                     case  '3':
                         map.get("gameprops").add(MapGameProps.createMapGameProps(i, j));
                     case  '6':
-                        initPlayer(i, j);
+                        initPlayer(i, j ,0);
                     default:
                         break;
 
@@ -141,11 +141,11 @@ public class GameMap {
         }
     }
 
-   private void initPlayer(int i, int j){
+   private void initPlayer(int i, int j , int temp){
         List<SuperObject> playerList = ObjectController.getObjController().getMap().get("player");
         HashMap<String, List<String>> objectInfo = Resourceloader.getResourceloader().getMapObjectInfo();
         List<String> playInfo = objectInfo.get("player");
-        Player player = Player.createPlayer(i, j, playInfo);
+        Player player = Player.createPlayer(i, j, playInfo,1);
         playerList.add(player);
     }
 

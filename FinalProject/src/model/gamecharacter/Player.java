@@ -20,23 +20,25 @@ public class Player extends Character{
     private boolean isShowing;
     int moveX = 0;
     int moveY = 0;
-    private boolean moveable;
+    private boolean keyrelease;
+    private int keycontroller;
 
-    public Player(int x, int y, int width, int height, ImageIcon img) {
+    public Player(int x, int y, int width, int height, ImageIcon img,int keycontroller) {
         super(x, y, width, height);
         this.img = img;
-        moveable = true;
+        keyrelease = true;
         isShowing = true;
+        this.keycontroller =  keycontroller;
     }
 
-    public static Player createPlayer(int i, int j, List<String> playerInfo){
+    public static Player createPlayer(int i, int j, List<String> playerInfo, int keycontroller){ // wasd -> 0, arrows -> 1
         int x = j*MapObject.PIXEL_X + GameMap.getBiasX();
         int y = i*MapObject.PIXEL_Y + GameMap.getBiasY();
         int w = MapObject.PIXEL_X;
         int h = MapObject.PIXEL_Y;
 
         HashMap<String, ImageIcon> imageInfo = Resourceloader.getResourceloader().getimageInfo();
-        return  new Player(x, y, w, h, imageInfo.get(playerInfo.get(0))); //+String.valueOf(StartPanel.playerIndex)
+        return  new Player(x, y, w, h, imageInfo.get(playerInfo.get(0)), keycontroller); //+String.valueOf(StartPanel.playerIndex)
     }
 
     @Override
@@ -62,34 +64,66 @@ public class Player extends Character{
     }
 
     //move
-    public void act(char wasd){
+    public void act(int wasd){
         int tempx = getx();
         int tempy = gety();
-        switch (wasd) {
-            case ' ':
-                plantBubble();
-                break;
-            case 'w':
-                tempy -= MapObject.PIXEL_Y;
-                break;
-            case 's':
-                tempy += MapObject.PIXEL_Y;
-                break;
-            case 'a':
-                tempx -= MapObject.PIXEL_X;
-                break;
-            case 'd':
-                tempx += MapObject.PIXEL_X; 
-                break;
-            default:
-                break;
+
+        if( keycontroller == 0 ){
+            switch (wasd) {
+                case ' ':
+                    plantBubble();
+                    break;
+                case 87:
+                    tempy -= MapObject.PIXEL_Y;
+                    break;
+                case 83:
+                    tempy += MapObject.PIXEL_Y;
+                    break;
+                case 65:
+                    tempx -= MapObject.PIXEL_X;
+                    break;
+                case 68:
+                    tempx += MapObject.PIXEL_X; 
+                    break;
+                default:
+                    break;
+            }
+            if(wasd > 649 ){
+                keyrelease = true;
+                return;
+            }
+        }else if(keycontroller == 1){
+            switch (wasd) {
+                case ' ':
+                    plantBubble();
+                    break;
+                case 38:
+                    tempy -= MapObject.PIXEL_Y;
+                    break;
+                case 40:
+                    tempy += MapObject.PIXEL_Y;
+                    break;
+                case 37:
+                    tempx -= MapObject.PIXEL_X;
+                    break;
+                case 39:
+                    tempx += MapObject.PIXEL_X; 
+                    break;
+                default:
+                    break;
+            }
+            if(wasd > 369 ){
+                keyrelease = true;
+                return;
+            }
         }
+
         boolean b1 = collisiondetect(tempx, tempy, ObjectController.getObjController().getMap().get("obstacle"));
         boolean b2 = collisiondetect(tempx, tempy, ObjectController.getObjController().getMap().get("fragility"));
-        if(b1 && b2 && moveable) {
+        if(b1 && b2 && keyrelease) {
             setx(tempx);
             sety(tempy);
-            moveable = false;
+            keyrelease = false;
         }
     }
 
@@ -104,8 +138,8 @@ public class Player extends Character{
         return true;
     }
 
-    public void setmoveable(boolean moveable){
-        this.moveable = moveable;
+    public void setmoveable(boolean keyrelease){
+        this.keyrelease = keyrelease;
     }
-    public boolean getmoveable(){ return moveable;}
+    public boolean getmoveable(){ return keyrelease;}
 }
