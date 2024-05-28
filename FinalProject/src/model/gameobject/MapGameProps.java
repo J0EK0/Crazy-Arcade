@@ -14,32 +14,12 @@ public class MapGameProps extends MapObject{
     private boolean eaten;
     private int playerIndex;
     private static HashMap<String, List<String>> objectInfo = Resourceloader.getResourceloader().getMapObjectInfo();
-    //private static HashMap<String, Integer> propsChance = new HashMap<String, Integer>();
-    /*static {
-        propsChance.put("0", 60);
-        propsChance.put("1", 25);
-        propsChance.put("2", 15);
-    }*/
+
     public MapGameProps(int i, int j, ImageIcon img, int sx1, int sy1, int sx2, int sy2, int scaleX, int scaleY, String type){
         super(i, j, img, sx1, sy1, sx2, sy2, scaleX, scaleY);
         eaten = false;
         this.type = type;
     }
-    
-    /*public static String getChanceProps(){
-        Integer sum = 0;
-        for(Integer val:propsChance.values()){
-            sum += val;
-        }
-        Integer rand = new Random().nextInt(sum)+1;
-        for(Map.Entry<String,Integer> entry:propsChance.entrySet()){
-            rand -= entry.getValue();
-            if(rand<=0){
-                return entry.getKey();
-            }
-        }
-        return null;
-    }*/
 
     public static String getProps(){
         Integer rand = new Random().nextInt(10);
