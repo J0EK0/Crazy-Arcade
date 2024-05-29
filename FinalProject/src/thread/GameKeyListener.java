@@ -12,13 +12,32 @@ public class GameKeyListener implements KeyListener{
 
     @Override
     public void keyPressed(KeyEvent e){
+
         playerList = ObjectController.getObjController().getMap().get("player");
-
         int code = e.getKeyCode();
-        for(int num = 0; num < playerList.size(); num++){
-            Player player = (Player) playerList.get(num);
-            player.act(code);
-
+        
+        switch (code) {
+            case ' ':
+            case 87:
+            case 83:
+            case 65:
+            case 68:
+                if(playerList.size() > 0) {
+                    Player player = (Player) playerList.get( 0 );
+                    player.act(code);
+                }
+                break;
+            case 77:
+            case 37:
+            case 38:
+            case 39:
+            case 40:if(playerList.size() > 1 ) {
+                Player player = (Player) playerList.get( 1);
+                player.act(code);
+            }
+            break;
+            default:
+                break;
         }
     }
 
@@ -27,10 +46,28 @@ public class GameKeyListener implements KeyListener{
         playerList = ObjectController.getObjController().getMap().get("player");
        
         int code = e.getKeyCode();
-        for(int num = 0; num < playerList.size(); num++){
-            Player player = (Player) playerList.get(num);
-            player.act(code * 10);
-
+        switch (code) {
+            case ' ':
+            case 87:
+            case 83:
+            case 65:
+            case 68:
+                if(playerList.size() > 0) {
+                    Player player = (Player) playerList.get( 0 );
+                    player.setkeyrelease(true);
+                }
+                break;
+            case 77:
+            case 37:
+            case 38:
+            case 39:
+            case 40:if(playerList.size() > 1 ) {
+                Player player = (Player) playerList.get( 1);
+                player.setkeyrelease(true);
+            }
+            break;
+            default:
+                break;
         }
     }
 
