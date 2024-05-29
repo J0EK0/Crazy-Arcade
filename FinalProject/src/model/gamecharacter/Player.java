@@ -5,6 +5,8 @@ import controller.ObjectController;
 import java.awt.*;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 import javax.swing.*;
 import model.gamecharacter.Character;
 import model.gameobject.MapBubble;
@@ -22,6 +24,8 @@ public class Player extends Character{
     int moveY = 0;
     private boolean keyrelease;
     private int keycontroller;
+    private boolean dying = false;
+    private int dyingTime;
 
     public Player(int x, int y, int width, int height, ImageIcon img,int keycontroller) {
         super(x, y, width, height);
@@ -29,6 +33,7 @@ public class Player extends Character{
         keyrelease = true;
         isShowing = true;
         this.keycontroller =  keycontroller;
+        dyingTime = 5000;
     }
 
     public static Player createPlayer(int i, int j, List<String> playerInfo, int keycontroller){ // wasd -> 0, arrows -> 1
@@ -142,4 +147,35 @@ public class Player extends Character{
         this.keyrelease = keyrelease;
     }
     public boolean getmoveable(){ return keyrelease;}
+
+    public void setDying(boolean dying){
+        this.dying = dying;
+    }
+
+    @Override
+    public void update() {
+        if(!dead){
+            if(dying){
+                img = Resourceloader.getResourceloader().getimageInfo().get("player1dying");
+                Timer timer = new Timer();
+                TimerTask task = new TimerTask() {
+                    @Override
+                    public void run() {
+                        if(dying){
+                            dead = true;
+                        }
+                    }
+                };
+                timer.schedule(task, 5000);
+            }
+        }
+    }
+
+    public boolean isDying(){
+        return dying;
+    }
+
+    public int getDyingTime(){
+        return dyingTime;
+    }
 }

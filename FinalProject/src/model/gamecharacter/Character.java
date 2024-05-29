@@ -9,7 +9,8 @@ public class Character extends SuperObject{
     protected boolean dead;
     protected int speed; 
     protected int bubbleNum;
-
+    protected int magicSaveCount;
+    protected int magicPowerCount;
     protected int healthPoint;
     
 
@@ -20,6 +21,8 @@ public class Character extends SuperObject{
         speed = 5;
         bubbleNum = 10;
         score = 0;
+        magicSaveCount = 0;
+        magicPowerCount = 1;
     }
     
     public void setDead(boolean dead){ this.dead = dead;}
@@ -42,4 +45,20 @@ public class Character extends SuperObject{
 
     @Override
     public void showObject(Graphics g){};
+
+    public int getmagicSaveCount(){
+        return this.magicSaveCount;
+    }
+
+    public int getmagicPowerCount(){
+        return this.magicPowerCount;
+    }
+
+    public void setmagicSaveCount(int magicSaveCount){
+        this.magicSaveCount = magicSaveCount;
+    }
+
+    public void setmagicPowerCount(int magicPowerCount){
+        this.magicPowerCount = magicPowerCount;
+    }
 }
