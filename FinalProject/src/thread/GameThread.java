@@ -2,7 +2,7 @@ package thread;
 
 import controller.GameController;
 import controller.ObjectController;
-
+import gameframe.OverPanel;
 import main.StartGame;
 import model.gameobject.MapFragility;
 import resourceloader.Resourceloader;
@@ -58,7 +58,7 @@ public class GameThread extends Thread{
                 }
                 ExplodeFragility();
                 playerGameprops();
-                //playerExplode();
+                playerExplode();
                 bubbleExplodeSerial();
                 //gameResult();
                 gameTime = gameTime - refreshTime;
@@ -140,17 +140,17 @@ public class GameThread extends Thread{
                 survivalNum++;
             }
         }
-        if(survivalNum == 0){
+        if(survivalNum == 1){
             running = false;
             over = true;
             OverPanel.getResultButton().setIcon(Resourceloader.getResourceloader().getImageInfo().get("fail"));
         }
 
-        if(survivalNum > 0 && gameTime <= 0){
+        /*if(survivalNum > 0 && gameTime <= 0){
             running = false;
             over = true;
             OverPanel.getResultButton().setIcon(Resourceloader.getResourceloader().getImageInfo().get("win"));
-        }
+        }*/
     }
 
     public void setRunning(boolean status){
