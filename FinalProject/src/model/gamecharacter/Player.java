@@ -64,7 +64,7 @@ public class Player extends Character{
         if(!gamemap.isBubble(i,j)){
             List<SuperObject> bubble = ObjectController.getObjController().getMap().get("bubble");
             List<String> bubbleinfo = Resourceloader.getResourceloader().getMapObjectInfo().get("90");
-            bubble.add(MapBubble.createMapBubble(i, j, bubbleinfo, 1));
+            bubble.add(MapBubble.createMapBubble(i, j, bubbleinfo, getBubblePower()));
         }
     }
 
