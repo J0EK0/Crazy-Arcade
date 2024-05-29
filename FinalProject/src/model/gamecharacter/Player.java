@@ -76,54 +76,29 @@ public class Player extends Character{
         int tempx = getx();
         int tempy = gety();
 
-        if( keycontroller == 0 ){
-            switch (wasd) {
-                case ' ':
-                    plantBubble();
-                    break;
-                case 87:
-                    tempy -= MapObject.PIXEL_Y;
-                    break;
-                case 83:
-                    tempy += MapObject.PIXEL_Y;
-                    break;
-                case 65:
-                    tempx -= MapObject.PIXEL_X;
-                    break;
-                case 68:
-                    tempx += MapObject.PIXEL_X; 
-                    break;
-                default:
-                    break;
-            }
-            if(wasd > 649 ){
-                keyrelease = true;
-                return;
-            }
-        }else if(keycontroller == 1){
-            switch (wasd) {
-                case ' ':
-                    plantBubble();
-                    break;
-                case 38:
-                    tempy -= MapObject.PIXEL_Y;
-                    break;
-                case 40:
-                    tempy += MapObject.PIXEL_Y;
-                    break;
-                case 37:
-                    tempx -= MapObject.PIXEL_X;
-                    break;
-                case 39:
-                    tempx += MapObject.PIXEL_X; 
-                    break;
-                default:
-                    break;
-            }
-            if(wasd > 369 ){
-                keyrelease = true;
-                return;
-            }
+        switch (wasd) {
+            case ' ':
+            case 77: //'m'
+                plantBubble();
+                break;
+            case 87:
+            case 38:
+                tempy -= MapObject.PIXEL_Y;
+                break;
+            case 83:
+            case 40:
+                tempy += MapObject.PIXEL_Y;
+                break;
+            case 65:
+            case 37:
+                tempx -= MapObject.PIXEL_X;
+                break;
+            case 68:
+            case 39:
+                tempx += MapObject.PIXEL_X; 
+                break;
+            default:
+                break;
         }
 
         boolean b1 = collisiondetect(tempx, tempy, ObjectController.getObjController().getMap().get("obstacle"));
@@ -146,7 +121,7 @@ public class Player extends Character{
         return true;
     }
 
-    public void setmoveable(boolean keyrelease){
+    public void setkeyrelease(boolean keyrelease){
         this.keyrelease = keyrelease;
     }
     public boolean getmoveable(){ return keyrelease;}
