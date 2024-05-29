@@ -26,6 +26,7 @@ public class Player extends Character{
     private int keycontroller;
     private boolean dying = false;
     private int dyingTime;
+    private boolean keepdying = false;
 
     public Player(int x, int y, int width, int height, ImageIcon img,int keycontroller) {
         super(x, y, width, height);
@@ -154,8 +155,9 @@ public class Player extends Character{
 
     @Override
     public void update() {
-        if(!dead){
-            if(dying){
+        if(dying) {
+            if(!keepdying){
+                keepdying = true;
                 img = Resourceloader.getResourceloader().getimageInfo().get("player1dying");
                 Timer timer = new Timer();
                 TimerTask task = new TimerTask() {
@@ -168,6 +170,7 @@ public class Player extends Character{
                 };
                 timer.schedule(task, 5000);
             }
+            dyingTime = dyingTime - 20;
         }
     }
 
@@ -177,5 +180,9 @@ public class Player extends Character{
 
     public int getDyingTime(){
         return dyingTime;
+    }
+
+    public boolean isDead(){
+        return dead;
     }
 }
