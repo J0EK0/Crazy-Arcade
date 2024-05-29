@@ -27,14 +27,16 @@ public class Player extends Character{
     private boolean dying = false;
     private int dyingTime;
     private boolean keepdying = false;
+    private int playerindex;
 
-    public Player(int x, int y, int width, int height, ImageIcon img,int keycontroller) {
+    public Player(int x, int y, int width, int height, ImageIcon img,int keycontroller, int playerindex) {
         super(x, y, width, height);
         this.img = img;
         keyrelease = true;
         isShowing = true;
         this.keycontroller =  keycontroller;
         dyingTime = 5000;
+        this.playerindex = playerindex;
     }
 
     public static Player createPlayer(int i, int j, List<String> playerInfo, int keycontroller){ // wasd -> 0, arrows -> 1
