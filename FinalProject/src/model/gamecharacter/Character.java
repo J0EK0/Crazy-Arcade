@@ -47,4 +47,13 @@ public class Character extends SuperObject{
 
     @Override
     public void showObject(Graphics g){};
+    public void setmagicPowerCount(int num){
+        magicPowerCount = num;
+    }
+
+    public int getmagicPowerCount() {return magicPowerCount;}
+
+    public void setmagicSaveCount(int num) {magicSaveCount = num;}
+
+    public int getmagicSaveCount() {return  magicSaveCount;}
 }
