@@ -78,6 +78,7 @@ public class Player extends Character{
         switch (wasd) {
             case ' ':
             case 77: //'m'
+                if( dying ) return;
                 plantBubble();
                 break;
             case 87:
