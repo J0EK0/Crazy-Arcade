@@ -163,22 +163,6 @@ public class Player extends Character{
             dyingTime = dyingTime - 20;
         }
     }
-    public void setNormalImg(){
-        System.out.println(" i have been here");
-    }
-
-    public void setMagicPowerCount(int count){
-        this.magicPowerCount = count;
-    }
-    public int getMagicPowerCount(){
-        return magicPowerCount;
-    }
-    public void setMagicSaveCount(int count){
-        this.magicSaveCount = count;
-    }
-    public int getMagicSaveCount(){
-        return magicSaveCount;
-    }
 
     public boolean isDying(){
         return dying;
