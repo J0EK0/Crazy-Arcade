@@ -60,6 +60,7 @@ public class GameThread extends Thread{
                 playerExplode();
                 bubbleExplodeSerial();
                 gameResult();
+                playerflash();
                 gameTime = gameTime - refreshTime;
             }
             try{
@@ -127,6 +128,19 @@ public class GameThread extends Thread{
             }
         }
     }
+
+    private void playerflash(){ 
+        List<SuperObject> playerList = ObjectController.getObjController().getMap().get("player");
+        
+        for(int i = 0; i < playerList.size(); i++){
+            Player player = (Player) playerList.get(i); 
+            if(player.getflashing()){
+                if(player.getshowing()) player.setshowing(false);
+                else  player.setshowing(true);
+            }
+        }
+    }
+
     public static int getGameTime(){
         return gameTime;
     }
