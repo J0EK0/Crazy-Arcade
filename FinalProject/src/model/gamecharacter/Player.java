@@ -30,7 +30,6 @@ public class Player extends Character{
     private boolean moveable;
 
     private boolean flashing;
-    private boolean flash;
 
     public Player(int x, int y, int width, int height, ImageIcon img, int playerindex) {
         super(x, y, width, height);
