@@ -37,7 +37,6 @@ public class Player extends Character{
         this.img = img;
         keyrelease = true;
         isShowing = true;
-        this.keycontroller =  keycontroller;
         dyingTime = 5000;
         this.playerindex = playerindex;
         magicPowerCount = 0;
@@ -162,6 +161,10 @@ public class Player extends Character{
             }
             dyingTime = dyingTime - 20;
         }
+        else{
+            keepdying = false;
+            dyingTime = 5000;
+        }
     }
 
     public boolean isDying(){
@@ -174,5 +177,22 @@ public class Player extends Character{
 
     public boolean isDead(){
         return dead;
+    }
+
+    public void setNormalImg(){
+        if(playerindex == 0){
+            img = Resourceloader.getResourceloader().getimageInfo().get("player1");
+        }
+        else{
+            img = Resourceloader.getResourceloader().getimageInfo().get("player2");
+        }
+    }
+
+    public void setbubblepower(int power){
+        this.bubblePower = power;
+    }
+
+    public int getbubblepower(){
+        return this.bubblePower;
     }
 }
