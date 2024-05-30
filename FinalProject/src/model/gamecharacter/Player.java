@@ -23,14 +23,11 @@ public class Player extends Character{
     int moveX = 0;
     int moveY = 0;
     private boolean keyrelease;
-    private int keycontroller;
     private boolean dying = false;
     private int dyingTime;
     private boolean keepdying = false;
     private int playerindex;
-
-    private int magicSaveCount;
-    private int magicPowerCount;
+    private boolean moveable;
 
     public Player(int x, int y, int width, int height, ImageIcon img, int playerindex) {
         super(x, y, width, height);
@@ -41,6 +38,7 @@ public class Player extends Character{
         this.playerindex = playerindex;
         magicPowerCount = 0;
         magicSaveCount =0;
+        moveable = true;
     }
 
     public static Player createPlayer(int i, int j, List<String> playerInfo, int playerindex){ // wasd -> 0, arrows -> 1
@@ -70,12 +68,13 @@ public class Player extends Character{
         if(!gamemap.isBubble(i,j)){
             List<SuperObject> bubble = ObjectController.getObjController().getMap().get("bubble");
             List<String> bubbleinfo = Resourceloader.getResourceloader().getMapObjectInfo().get("90");
-            bubble.add(MapBubble.createMapBubble(i, j, bubbleinfo, getBubblePower()));
+            bubble.add(MapBubble.createMapBubble(i, j, bubbleinfo, getbubblepower()));
         }
     }
 
     //move
     public void act(int wasd){
+        if( !moveable ) return;
 
         int tempx = getx();
         int tempy = gety();
@@ -142,28 +141,35 @@ public class Player extends Character{
         if(dying) {
             if(!keepdying){
                 keepdying = true;
-                if(playerindex == 0){
-                    img = Resourceloader.getResourceloader().getimageInfo().get("player1dying");
-                }
-                else{
-                    img = Resourceloader.getResourceloader().getimageInfo().get("player2dying");
-                }
+                img = Resourceloader.getResourceloader().getimageInfo().get("player"+String.valueOf(playerindex+1)+"dying");
+                moveable = false;
+
                 Timer timer = new Timer();
                 TimerTask task = new TimerTask() {
                     @Override
                     public void run() {
-                        if(dying){
+                        
+                        if(dying && getmagicSaveCount() == 0){
                             dead = true;
+                        }else {
+                            setDying(false);
+                            setNormalImg();
+                            setmagicSaveCount(getmagicSaveCount() - 1);
                         }
                     }
                 };
-                timer.schedule(task, 5000);
+                if(getmagicSaveCount() == 0){
+                    timer.schedule(task, 5000);
+                }else{
+                    timer.schedule(task, 2000);
+                }
             }
             dyingTime = dyingTime - 20;
         }
         else{
             keepdying = false;
             dyingTime = 5000;
+            moveable = true;
         }
     }
 
@@ -180,12 +186,7 @@ public class Player extends Character{
     }
 
     public void setNormalImg(){
-        if(playerindex == 0){
-            img = Resourceloader.getResourceloader().getimageInfo().get("player1");
-        }
-        else{
-            img = Resourceloader.getResourceloader().getimageInfo().get("player2");
-        }
+        img = Resourceloader.getResourceloader().getimageInfo().get("player"+String.valueOf(playerindex+1));
     }
 
     public void setbubblepower(int power){

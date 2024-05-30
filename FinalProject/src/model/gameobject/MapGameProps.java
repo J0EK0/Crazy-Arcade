@@ -52,10 +52,10 @@ public class MapGameProps extends MapObject{
             List<SuperObject> playerList = ObjectController.getObjController().getMap().get("player");
             Player player = (Player)playerList.get(playerIndex);
             switch (type){
-                case "31":
+                case "32":
                     player.setmagicSaveCount(player.getmagicSaveCount() + 1);
                     break;
-                case "32":
+                case "31":
                     player.setmagicPowerCount(player.getmagicPowerCount() + 1);
                     break;
                 default:
