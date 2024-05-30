@@ -55,14 +55,6 @@ public class GameMap {
             mapList.add(mapInfo.get(String.valueOf(i + 1)));
         }
     
-        // 印出 mapList 的內容
-        /*
-        System.out.println("Map List:");
-        for (List<String> row : mapList) {
-            System.out.println(row);
-        }
-        */
-    
         // 調用 createMapObject 方法以建立地圖物件
         createMapObject();
     }
