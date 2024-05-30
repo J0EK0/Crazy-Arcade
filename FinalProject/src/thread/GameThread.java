@@ -6,6 +6,7 @@ import gameframe.OverPanel;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
+import javax.swing.*;
 import main.StartGame;
 import model.gamecharacter.Player;
 import model.gameobject.*;
@@ -132,17 +133,28 @@ public class GameThread extends Thread{
 
     private void gameResult(){
         List<SuperObject> playerList = ObjectController.getObjController().getMap().get("player");
-        int survivalNum = 0;
+        int loser = -1;
         for(SuperObject so: playerList){
-            if(!((Player)so).isDead()){
-                survivalNum++;
+            if(((Player)so).isDead()){
+                loser = playerList.indexOf(so);
             }
         }
-        if(survivalNum == 1){
+        if(loser != -1){
             running = false;
             over = true;
             System.out.println("end");
-            OverPanel.getResultButton().setIcon(Resourceloader.getResourceloader().getimageInfo().get("fail"));
+            OverPanel.getResultButton().setIcon(Resourceloader.getResourceloader().getimageInfo().get("win"));
+            if(loser == 0){
+                ImageIcon icon = Resourceloader.getResourceloader().getimageInfo().get("player2");
+                ImageIcon r1 = Resourceloader.getResourceloader().resizeIcon(icon,800,800);
+                OverPanel.getwinnerlabel().setIcon(r1);
+            }
+            else{
+                ImageIcon icon = Resourceloader.getResourceloader().getimageInfo().get("player1");
+                ImageIcon r1 = Resourceloader.getResourceloader().resizeIcon(icon,800,800);
+                OverPanel.getwinnerlabel().setIcon(r1);
+            }
+            //OverPanel.getResultButton().setIcon(Resourceloader.getResourceloader().getimageInfo().get("fail"));
         }
 
         /*if(survivalNum > 0 && gameTime <= 0){
