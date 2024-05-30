@@ -12,7 +12,6 @@ public class Character extends SuperObject{
     protected int bubblePower;
     protected int magicSaveCount;
     protected int magicPowerCount;
-    protected int healthPoint;
     
 
     public Character(int x, int y, int width, int height) {
