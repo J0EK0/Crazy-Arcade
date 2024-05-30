@@ -111,22 +111,21 @@ public class GamePanel extends JPanel implements Runnable{
         getFocus();
         List<SuperObject> playerList = ObjectController.getObjController().getMap().get("player");
         Player player = (Player) playerList.get(0);
-        /*if(player.getMagicPowerCount() > 0 && !player.isDying()){
-            player.setMagicPowerCount(player.getMagicPowerCount() - 1);
-            player.setBubblePower(player.getBubblePower() + 1);
-        }*/
+        if(player.getmagicPowerCount() > 0 && !player.isDying()){
+            player.setmagicPowerCount(player.getmagicPowerCount() - 1);
+            player.setbubblepower(player.getbubblepower() + 1);
+        }
     }
 
     public void jiuButtonActionPerformed(ActionEvent e){
         getFocus();
         List<SuperObject> playerList = ObjectController.getObjController().getMap().get("player");
         Player player = (Player) playerList.get(0);
-        /*if(player.getMagicSaveCount()>0){
-            player.setMagicSaveCount(player.getMagicSaveCount() - 1);
+        if(player.getmagicSaveCount()>0){
+            player.setmagicSaveCount(player.getmagicSaveCount() - 1);
             player.setDying(false);
-            player.setSpeed(Character.INIT_SPEED);
             player.setNormalImg();
-        }*/
+        }
     }
 
     /*public void gameCtrlActionPerformed(ActionEvent e){

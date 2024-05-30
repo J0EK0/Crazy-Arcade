@@ -12,6 +12,7 @@ public class Character extends SuperObject{
     protected int magicSaveCount;
     protected int magicPowerCount;
     protected int healthPoint;
+    protected int bubblepower;
     
 
     public Character(int x, int y, int width, int height) {
@@ -30,9 +31,6 @@ public class Character extends SuperObject{
 
     public void setSpeed(int speed){this.speed = speed;}
     public int getSpeed(){return speed;}
-
-    public void setBubbleNum(int bubbleNum){this.bubbleNum = bubbleNum;}
-    public int getBubbleNum(){return bubbleNum;}
 
     public void setScore(int score){this.score = score;}
     public int getScore(){return score;}
@@ -61,4 +59,11 @@ public class Character extends SuperObject{
     public void setmagicPowerCount(int magicPowerCount){
         this.magicPowerCount = magicPowerCount;
     }
+
+    public int getbubblepower(){return this.bubblepower;};
+
+    public void setbubblepower(int bubblepower){
+        this.bubblepower = bubblepower;
+    }
+
 }

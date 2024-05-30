@@ -65,7 +65,7 @@ public class Player extends Character{
         if(!gamemap.isBubble(i,j)){
             List<SuperObject> bubble = ObjectController.getObjController().getMap().get("bubble");
             List<String> bubbleinfo = Resourceloader.getResourceloader().getMapObjectInfo().get("90");
-            bubble.add(MapBubble.createMapBubble(i, j, bubbleinfo, 1));
+            bubble.add(MapBubble.createMapBubble(i, j, bubbleinfo, bubblepower));
         }
     }
 
@@ -147,6 +147,7 @@ public class Player extends Character{
     public void setmoveable(boolean keyrelease){
         this.keyrelease = keyrelease;
     }
+    
     public boolean getmoveable(){ return keyrelease;}
 
     public void setDying(boolean dying){
@@ -184,5 +185,9 @@ public class Player extends Character{
 
     public boolean isDead(){
         return dead;
+    }
+
+    public void setNormalImg(){
+        img = Resourceloader.getResourceloader().getimageInfo().get("player1dying");
     }
 }
