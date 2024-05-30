@@ -56,7 +56,7 @@ public class MapGameProps extends MapObject{
                     player.setmagicSaveCount(player.getmagicSaveCount() + 1);
                     break;
                 case "31":
-                    player.setmagicPowerCount(player.getmagicPowerCount() + 1);
+                    player.setbubblepower(player.getbubblepower() + 1);
                     break;
                 default:
                     break;

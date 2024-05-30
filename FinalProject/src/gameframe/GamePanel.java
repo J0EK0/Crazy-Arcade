@@ -55,7 +55,7 @@ public class GamePanel extends JPanel implements Runnable{
          weiImg.setImage(weiImg.getImage().getScaledInstance(70, 70, Image.SCALE_SMOOTH));
          magicWei.setIcon(weiImg);
          magicWei.setBounds(950, 390, 70, 70);
-         magicWei.addActionListener(e -> weiButtonActionPerformed(e));
+         //magicWei.addActionListener(e -> weiButtonActionPerformed(e));
 
          magicJiu = new JButton();
          ImageIcon jiuImg = Resourceloader.getResourceloader().getimageInfo().get("jiuming");
@@ -65,14 +65,14 @@ public class GamePanel extends JPanel implements Runnable{
          magicJiu.addActionListener(e -> jiuButtonActionPerformed(e));
 
          magicWei2 = new JButton();
-         ImageIcon weiImg2 = Resourceloader.getResourceloader().getimageInfo().get("jiuming");
+         ImageIcon weiImg2 = Resourceloader.getResourceloader().getimageInfo().get("weili");
          weiImg2.setImage(weiImg2.getImage().getScaledInstance(70, 70, Image.SCALE_SMOOTH));
          magicWei2.setIcon(weiImg2);
          magicWei2.setBounds(950, 240, 70, 70);
-         magicWei2.addActionListener(e -> weiButton2ActionPerformed(e));
+         //magicWei2.addActionListener(e -> weiButton2ActionPerformed(e));
 
          magicJiu2 = new JButton();
-         ImageIcon jiuImg2 = Resourceloader.getResourceloader().getimageInfo().get("weili");
+         ImageIcon jiuImg2 = Resourceloader.getResourceloader().getimageInfo().get("jiuming");
          jiuImg2.setImage(jiuImg2.getImage().getScaledInstance(70, 70, Image.SCALE_SMOOTH));
          magicJiu2.setIcon(jiuImg2);
          magicJiu2.setBounds(950, 320, 70, 70);
@@ -137,23 +137,23 @@ public class GamePanel extends JPanel implements Runnable{
     public void weiButton2ActionPerformed(ActionEvent e){
         getFocus();
         List<SuperObject> playerList = ObjectController.getObjController().getMap().get("player");
-        Player player = (Player) playerList.get(0);
-        /*if(player.getMagicPowerCount() > 0 && !player.isDying()){
-            player.setMagicPowerCount(player.getMagicPowerCount() - 1);
-            player.setBubblePower(player.getBubblePower() + 1);
-        }*/
+        Player player = (Player) playerList.get(1);
+        if(player.getmagicPowerCount() > 0 && !player.isDying()){
+            player.setmagicPowerCount(player.getmagicPowerCount() - 1);
+            player.setbubblepower(player.getbubblepower() + 1);
+        }
     }
 
     public void jiuButton2ActionPerformed(ActionEvent e){
         getFocus();
         List<SuperObject> playerList = ObjectController.getObjController().getMap().get("player");
-        Player player = (Player) playerList.get(0);
-        /*if(player.getMagicSaveCount()>0){
-            player.setMagicSaveCount(player.getMagicSaveCount() - 1);
+        Player player = (Player) playerList.get(1);
+        if(player.getmagicSaveCount()>0){
+            player.setmagicSaveCount(player.getmagicSaveCount() - 1);
             player.setDying(false);
-            player.setSpeed(Character.INIT_SPEED);
+            //player.setSpeed(Character.INIT_SPEED);
             player.setNormalImg();
-        }*/
+        }
     }
     /*public void gameCtrlActionPerformed(ActionEvent e){
         getFocus();
