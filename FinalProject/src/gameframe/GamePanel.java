@@ -205,7 +205,7 @@ public class GamePanel extends JPanel implements Runnable{
             g.drawString("数量:  "+String.valueOf(player.getmagicSaveCount()), 1030, 510);
 
             g.setFont(new Font("宋体", Font.BOLD, 24));
-            g.drawString("泡泡威力:   " + String.valueOf(player2.getBubblePower()), 950, 110);
+            g.drawString("泡泡威力:   " + String.valueOf(player2.getbubblepower()), 950, 110);
             g.setFont(new Font("宋体", Font.BOLD, 18));
             //g.drawString("数量:  "+String.valueOf(player.getMagicBubbleCount()), 1030, 350);
             g.drawString("数量:  " + String.valueOf(player2.getmagicPowerCount()), 1030, 280);
