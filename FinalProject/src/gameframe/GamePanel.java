@@ -21,6 +21,8 @@ public class GamePanel extends JPanel implements Runnable{
     private GameKeyListener keyListener;
     private JButton magicWei;
     private JButton magicJiu;
+    private JButton magicWei2;
+    private JButton magicJiu2;
     public GamePanel() {
         super();
         running = true;
@@ -61,9 +63,26 @@ public class GamePanel extends JPanel implements Runnable{
          magicJiu.setIcon(jiuImg);
          magicJiu.setBounds(950, 470, 70, 70);
          magicJiu.addActionListener(e -> jiuButtonActionPerformed(e));
+
+         magicWei2 = new JButton();
+         ImageIcon weiImg2 = Resourceloader.getResourceloader().getimageInfo().get("jiuming");
+         weiImg2.setImage(weiImg2.getImage().getScaledInstance(70, 70, Image.SCALE_SMOOTH));
+         magicWei2.setIcon(weiImg2);
+         magicWei2.setBounds(950, 240, 70, 70);
+         magicWei2.addActionListener(e -> weiButton2ActionPerformed(e));
+
+         magicJiu2 = new JButton();
+         ImageIcon jiuImg2 = Resourceloader.getResourceloader().getimageInfo().get("weili");
+         jiuImg2.setImage(jiuImg2.getImage().getScaledInstance(70, 70, Image.SCALE_SMOOTH));
+         magicJiu2.setIcon(jiuImg2);
+         magicJiu2.setBounds(950, 320, 70, 70);
+         magicJiu2.addActionListener(e -> jiuButton2ActionPerformed(e));
+
          this.setLayout(null);
          this.add(magicWei);
          this.add(magicJiu);
+         this.add(magicWei2);
+         this.add(magicJiu2);
     }
 
     /*public void stopMusicActionPerformed(ActionEvent e){
@@ -115,7 +134,27 @@ public class GamePanel extends JPanel implements Runnable{
             player.setNormalImg();
         }
     }
+    public void weiButton2ActionPerformed(ActionEvent e){
+        getFocus();
+        List<SuperObject> playerList = ObjectController.getObjController().getMap().get("player");
+        Player player = (Player) playerList.get(0);
+        /*if(player.getMagicPowerCount() > 0 && !player.isDying()){
+            player.setMagicPowerCount(player.getMagicPowerCount() - 1);
+            player.setBubblePower(player.getBubblePower() + 1);
+        }*/
+    }
 
+    public void jiuButton2ActionPerformed(ActionEvent e){
+        getFocus();
+        List<SuperObject> playerList = ObjectController.getObjController().getMap().get("player");
+        Player player = (Player) playerList.get(0);
+        /*if(player.getMagicSaveCount()>0){
+            player.setMagicSaveCount(player.getMagicSaveCount() - 1);
+            player.setDying(false);
+            player.setSpeed(Character.INIT_SPEED);
+            player.setNormalImg();
+        }*/
+    }
     /*public void gameCtrlActionPerformed(ActionEvent e){
         getFocus();
         if(GameController.isGameRunning()){
@@ -151,6 +190,7 @@ public class GamePanel extends JPanel implements Runnable{
         }
         if(map.get("player").size() > 0){
             Player player = (Player) map.get("player").get(0);
+            Player player2 = (Player) map.get("player").get(1);
             g.setFont(new Font("宋体", Font.BOLD, 24));
             /*if(InitialPanel.playerIndex == 1){
                 g.drawString("Duck", 1080 , 100);
@@ -163,6 +203,13 @@ public class GamePanel extends JPanel implements Runnable{
             //g.drawString("数量:  "+String.valueOf(player.getMagicBubbleCount()), 1030, 350);
             g.drawString("数量:  " + String.valueOf(player.getmagicPowerCount()), 1030, 430);
             g.drawString("数量:  "+String.valueOf(player.getmagicSaveCount()), 1030, 510);
+
+            g.setFont(new Font("宋体", Font.BOLD, 24));
+            g.drawString("泡泡威力:   " + String.valueOf(player2.getBubblePower()), 950, 110);
+            g.setFont(new Font("宋体", Font.BOLD, 18));
+            //g.drawString("数量:  "+String.valueOf(player.getMagicBubbleCount()), 1030, 350);
+            g.drawString("数量:  " + String.valueOf(player2.getmagicPowerCount()), 1030, 280);
+            g.drawString("数量:  "+String.valueOf(player2.getmagicSaveCount()), 1030, 360);
 
             int gameTime = GameThread.getGameTime()/1000;
             int minute = gameTime / 60;
