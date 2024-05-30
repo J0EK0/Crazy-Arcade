@@ -74,7 +74,7 @@ public class InitialPanel extends JPanel {
         introButton.setBounds(width/6, height/3, 240, 80);
         introButton.setVisible(true);
         
-        this.add(introButton);
+        //this.add(introButton);
         changeButton = new JButton();
         changeButton.setIcon(resizedIcon4);
         changeButton.setVisible(true);
@@ -96,7 +96,7 @@ public class InitialPanel extends JPanel {
         selectButton.setBounds(200, 700, 150, 100);
         selectButton.addActionListener(e -> selectButtonActionPerformed(e));
         selectButton.setVisible(true);
-        this.add(selectButton);
+        //this.add(selectButton);
         startButton = new JButton();
         startButton.setIcon(resizedIcon);
         startButton.setBounds(width/6, height/2, 240, 80);
@@ -107,11 +107,11 @@ public class InitialPanel extends JPanel {
         startButton.addActionListener(e -> startButtonActionPerformed(e));
 
         layeredPane.add(startLabel, JLayeredPane.DEFAULT_LAYER);
-        layeredPane.add(introButton, JLayeredPane.PALETTE_LAYER);
-        layeredPane.add(selectButton, JLayeredPane.PALETTE_LAYER);
-        layeredPane.add(changeButton, JLayeredPane.PALETTE_LAYER);
-        layeredPane.add(ensureButton, JLayeredPane.PALETTE_LAYER);
-        layeredPane.add(playerLabel, JLayeredPane.PALETTE_LAYER);
+        //layeredPane.add(introButton, JLayeredPane.PALETTE_LAYER);
+        //layeredPane.add(selectButton, JLayeredPane.PALETTE_LAYER);
+        //layeredPane.add(changeButton, JLayeredPane.PALETTE_LAYER);
+        //layeredPane.add(ensureButton, JLayeredPane.PALETTE_LAYER);
+        //layeredPane.add(playerLabel, JLayeredPane.PALETTE_LAYER);
         layeredPane.add(startButton, JLayeredPane.PALETTE_LAYER);
         this.setLayout(null);
         this.add(layeredPane);
