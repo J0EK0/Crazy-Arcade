@@ -40,7 +40,7 @@ public class Player extends Character{
         dyingTime = 5000;
         this.playerindex = playerindex;
         magicPowerCount = 0;
-        magicSaveCount =0;
+        magicSaveCount =1;
         moveable = true;
         flashing = false;
     }
