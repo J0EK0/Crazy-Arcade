@@ -29,7 +29,7 @@ public class Player extends Character{
     private boolean keepdying = false;
     private int playerindex;
 
-    public Player(int x, int y, int width, int height, ImageIcon img, int playerindex) {
+    public Player(int x, int y, int width, int height, ImageIcon img,int keycontroller) {
         super(x, y, width, height);
         this.img = img;
         keyrelease = true;
@@ -67,7 +67,7 @@ public class Player extends Character{
         if(!gamemap.isBubble(i,j)){
             List<SuperObject> bubble = ObjectController.getObjController().getMap().get("bubble");
             List<String> bubbleinfo = Resourceloader.getResourceloader().getMapObjectInfo().get("90");
-            bubble.add(MapBubble.createMapBubble(i, j, bubbleinfo, getBubblePower()));
+            bubble.add(MapBubble.createMapBubble(i, j, bubbleinfo, 1));
         }
     }
 
@@ -124,6 +124,7 @@ public class Player extends Character{
     public void setkeyrelease(boolean keyrelease){
         this.keyrelease = keyrelease;
     }
+    
     public boolean getmoveable(){ return keyrelease;}
 
     public void setDying(boolean dying){
@@ -166,5 +167,14 @@ public class Player extends Character{
 
     public boolean isDead(){
         return dead;
+    }
+
+    public void setNormalImg(){
+        if(playerindex == 0){
+            img = Resourceloader.getResourceloader().getimageInfo().get("player1");
+        }
+        else{
+            img = Resourceloader.getResourceloader().getimageInfo().get("player2");
+        }
     }
 }

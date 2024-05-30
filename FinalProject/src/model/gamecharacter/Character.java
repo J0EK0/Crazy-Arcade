@@ -13,6 +13,8 @@ public class Character extends SuperObject{
     protected int healthPoint;
     protected int magicSaveCount;
     protected int magicPowerCount;
+    protected int healthPoint;
+    
 
     public Character(int x, int y, int width, int height) {
         super(x, y, width, height);
@@ -33,9 +35,7 @@ public class Character extends SuperObject{
 
     public void setBubbleNum(int bubbleNum){this.bubbleNum = bubbleNum;}
     public int getBubbleNum(){return bubbleNum;}
-    public int getBubblePower() {
-        return bubblePower;
-    }
+
     public void setScore(int score){this.score = score;}
     public int getScore(){return score;}
     
@@ -47,13 +47,14 @@ public class Character extends SuperObject{
 
     @Override
     public void showObject(Graphics g){};
-    public void setmagicPowerCount(int num){
-        magicPowerCount = num;
-    }
+
 
     public int getmagicPowerCount() {return magicPowerCount;}
 
+    public int getmagicSaveCount() {return magicSaveCount;}
     public void setmagicSaveCount(int num) {magicSaveCount = num;}
 
-    public int getmagicSaveCount() {return  magicSaveCount;}
+    public void setmagicPowerCount(int magicPowerCount){
+        this.magicPowerCount = magicPowerCount;
+    }
 }
