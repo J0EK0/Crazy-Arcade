@@ -53,10 +53,10 @@ public class MapGameProps extends MapObject{
             Player player = (Player)playerList.get(playerIndex);
             switch (type){
                 case "31":
-                    //player.setMagicPowerCount(player.getMagicPowerCount() + 1);
+                    player.setmagicSaveCount(player.getmagicSaveCount() + 1);
                     break;
                 case "32":
-                    //player.setMagicSaveCount(player.getMagicSaveCount() + 1);
+                    player.setmagicPowerCount(player.getmagicPowerCount() + 1);
                     break;
                 default:
                     break;

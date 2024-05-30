@@ -6,7 +6,7 @@ import controller.GameController;
 import controller.ObjectController;
 import main.StartGame;
 import model.gamecharacter.Character;
-//import model.gamecharacter.Player;
+import model.gamecharacter.Player;
 import model.gameobject.MapObject;
 import model.gameobject.SuperObject;
 import resourceloader.Resourceloader;
@@ -31,7 +31,8 @@ public class GamePanel extends JPanel implements Runnable{
     
     private boolean running;
     private GameKeyListener keyListener;
-
+    private JButton magicWei;
+    private JButton magicJiu;
     public GamePanel() {
         super();
         running = true;
@@ -59,8 +60,22 @@ public class GamePanel extends JPanel implements Runnable{
     }
 
     private void  init(){
+         magicWei = new JButton();
+         ImageIcon weiImg = Resourceloader.getResourceloader().getimageInfo().get("jiuming");
+         weiImg.setImage(weiImg.getImage().getScaledInstance(70, 70, Image.SCALE_SMOOTH));
+         magicWei.setIcon(weiImg);
+         magicWei.setBounds(950, 390, 70, 70);
+         magicWei.addActionListener(e -> weiButtonActionPerformed(e));
 
-        
+         magicJiu = new JButton();
+         ImageIcon jiuImg = Resourceloader.getResourceloader().getimageInfo().get("weili");
+         jiuImg.setImage(jiuImg.getImage().getScaledInstance(70, 70, Image.SCALE_SMOOTH));
+         magicJiu.setIcon(jiuImg);
+         magicJiu.setBounds(950, 470, 70, 70);
+         magicJiu.addActionListener(e -> jiuButtonActionPerformed(e));
+         this.setLayout(null);
+         this.add(magicWei);
+         this.add(magicJiu);
     }
 
     /*public void stopMusicActionPerformed(ActionEvent e){
@@ -91,30 +106,30 @@ public class GamePanel extends JPanel implements Runnable{
             player.setBubbleNum(player.getBubbleNum() + 1);
         }
     }
-
+    */
     public void weiButtonActionPerformed(ActionEvent e){
         getFocus();
         List<SuperObject> playerList = ObjectController.getObjController().getMap().get("player");
         Player player = (Player) playerList.get(0);
-        if(player.getMagicPowerCount() > 0 && !player.isDying()){
+        /*if(player.getMagicPowerCount() > 0 && !player.isDying()){
             player.setMagicPowerCount(player.getMagicPowerCount() - 1);
             player.setBubblePower(player.getBubblePower() + 1);
-        }
+        }*/
     }
 
     public void jiuButtonActionPerformed(ActionEvent e){
         getFocus();
         List<SuperObject> playerList = ObjectController.getObjController().getMap().get("player");
         Player player = (Player) playerList.get(0);
-        if(player.getMagicSaveCount()>0){
+        /*if(player.getMagicSaveCount()>0){
             player.setMagicSaveCount(player.getMagicSaveCount() - 1);
             player.setDying(false);
             player.setSpeed(Character.INIT_SPEED);
             player.setNormalImg();
-        }
+        }*/
     }
 
-    public void gameCtrlActionPerformed(ActionEvent e){
+    /*public void gameCtrlActionPerformed(ActionEvent e){
         getFocus();
         if(GameController.isGameRunning()){
             GameController.setGameRunning(false);
@@ -147,6 +162,41 @@ public class GamePanel extends JPanel implements Runnable{
                 list.get(i).showObject(g);
             }
         }
+        if(map.get("player").size() > 0){
+            Player player = (Player) map.get("player").get(0);
+            g.setFont(new Font("宋体", Font.BOLD, 24));
+            /*if(InitialPanel.playerIndex == 1){
+                g.drawString("Duck", 1080 , 100);
+            }else {
+                g.drawString("Hero", 1080, 100);
+            }*/
+            //g.drawString("泡泡数量:   "+String.valueOf(player.getBubbleNum()), 950, 180);
+            g.drawString("泡泡威力:   " + String.valueOf(player.getBubblePower()), 950, 210);
+            g.setFont(new Font("宋体", Font.BOLD, 18));
+            //g.drawString("数量:  "+String.valueOf(player.getMagicBubbleCount()), 1030, 350);
+            g.drawString("数量:  " + String.valueOf(player.getmagicPowerCount()), 1030, 430);
+            g.drawString("数量:  "+String.valueOf(player.getmagicSaveCount()), 1030, 510);
+
+            int gameTime = GameThread.getGameTime()/1000;
+            int minute = gameTime / 60;
+            int seconds = gameTime % 60;
+            String min = "0" + String.valueOf(minute);
+            String sec;
+            if(seconds < 10){
+                sec = "0" + String.valueOf(seconds);
+            }else {
+                sec = String.valueOf(seconds);
+            }
+            g.setFont(new Font("Times New Roman", Font.BOLD, 36));
+            g.drawString("Time: "+ min + ":" + sec, 950, 650);
+            /*if(player.isDying()){
+                g.setFont(new Font("Times New Roman", Font.BOLD, 24));
+                g.setColor(Color.red);
+                g.drawString("You are dying!!!", 950, 720);
+                g.drawString("Time Remaining: "+ String.valueOf(player.getDyingTime()/1000) + "s", 950, 760);
+                g.setColor(Color.BLACK);
+            }*/
+        }
     }
 
     public void addGameKeyListener(){
@@ -158,6 +208,9 @@ public class GamePanel extends JPanel implements Runnable{
     
     public void removeGameKeyListener(){
         this.removeKeyListener(keyListener);
+    }
+    public void getFocus(){
+        this.requestFocus();
     }
 
 }

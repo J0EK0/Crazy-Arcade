@@ -2,16 +2,14 @@ package thread;
 
 import controller.GameController;
 import controller.ObjectController;
-
-import main.StartGame;
-import model.gameobject.MapFragility;
-import resourceloader.Resourceloader;
-import model.gameobject.*;
-import model.gamecharacter.Player;
-
+import gameframe.OverPanel;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
+import main.StartGame;
+import model.gamecharacter.Player;
+import model.gameobject.*;
+import resourceloader.Resourceloader;
 
 public class GameThread extends Thread{
 
@@ -30,8 +28,8 @@ public class GameThread extends Thread{
             running = true;
             loadMap();
             runGame();
-            //gameClean();
-            //StartGame.changePanel("over");
+            gameClean();
+            StartGame.changePanel("over");
         }
         
     }
@@ -58,9 +56,9 @@ public class GameThread extends Thread{
                 }
                 ExplodeFragility();
                 playerGameprops();
-                //playerExplode();
+                playerExplode();
                 bubbleExplodeSerial();
-                //gameResult();
+                gameResult();
                 gameTime = gameTime - refreshTime;
             }
             try{
@@ -73,7 +71,7 @@ public class GameThread extends Thread{
 
     public void gameClean(){
         //GamePanel.getPlaymusic().stops();
-        ObjectController.getObjController().gameClean();
+        //ObjectController.getObjController().gameClean();
     }
 
     private void ExplodeFragility(){
@@ -140,17 +138,18 @@ public class GameThread extends Thread{
                 survivalNum++;
             }
         }
-        if(survivalNum == 0){
+        if(survivalNum == 1){
             running = false;
             over = true;
-            OverPanel.getResultButton().setIcon(Resourceloader.getResourceloader().getImageInfo().get("fail"));
+            System.out.println("end");
+            OverPanel.getResultButton().setIcon(Resourceloader.getResourceloader().getimageInfo().get("fail"));
         }
 
-        if(survivalNum > 0 && gameTime <= 0){
+        /*if(survivalNum > 0 && gameTime <= 0){
             running = false;
             over = true;
             OverPanel.getResultButton().setIcon(Resourceloader.getResourceloader().getImageInfo().get("win"));
-        }
+        }*/
     }
 
     public void setRunning(boolean status){
