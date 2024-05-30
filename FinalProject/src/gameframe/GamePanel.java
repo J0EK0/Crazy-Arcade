@@ -19,9 +19,9 @@ public class GamePanel extends JPanel implements Runnable{
     
     private boolean running;
     private GameKeyListener keyListener;
-    private JButton magicWei;
+    //private JButton magicWei;
     private JButton magicJiu;
-    private JButton magicWei2;
+    //private JButton magicWei2;
     private JButton magicJiu2;
     public GamePanel() {
         super();
@@ -50,11 +50,11 @@ public class GamePanel extends JPanel implements Runnable{
     }
 
     private void  init(){
-         magicWei = new JButton();
+         /*magicWei = new JButton();
          ImageIcon weiImg = Resourceloader.getResourceloader().getimageInfo().get("weili");
          weiImg.setImage(weiImg.getImage().getScaledInstance(70, 70, Image.SCALE_SMOOTH));
          magicWei.setIcon(weiImg);
-         magicWei.setBounds(950, 390, 70, 70);
+         magicWei.setBounds(950, 390, 70, 70);*/
          //magicWei.addActionListener(e -> weiButtonActionPerformed(e));
 
          magicJiu = new JButton();
@@ -64,11 +64,11 @@ public class GamePanel extends JPanel implements Runnable{
          magicJiu.setBounds(950, 470, 70, 70);
          magicJiu.addActionListener(e -> jiuButtonActionPerformed(e));
 
-         magicWei2 = new JButton();
+         /*magicWei2 = new JButton();
          ImageIcon weiImg2 = Resourceloader.getResourceloader().getimageInfo().get("weili");
          weiImg2.setImage(weiImg2.getImage().getScaledInstance(70, 70, Image.SCALE_SMOOTH));
          magicWei2.setIcon(weiImg2);
-         magicWei2.setBounds(950, 240, 70, 70);
+         magicWei2.setBounds(950, 240, 70, 70);*/
          //magicWei2.addActionListener(e -> weiButton2ActionPerformed(e));
 
          magicJiu2 = new JButton();
@@ -79,9 +79,9 @@ public class GamePanel extends JPanel implements Runnable{
          magicJiu2.addActionListener(e -> jiuButton2ActionPerformed(e));
 
          this.setLayout(null);
-         this.add(magicWei);
+         //this.add(magicWei);
          this.add(magicJiu);
-         this.add(magicWei2);
+         //this.add(magicWei2);
          this.add(magicJiu2);
     }
 
@@ -114,7 +114,7 @@ public class GamePanel extends JPanel implements Runnable{
         }
     }
     */
-    public void weiButtonActionPerformed(ActionEvent e){
+    /*public void weiButtonActionPerformed(ActionEvent e){
         getFocus();
         List<SuperObject> playerList = ObjectController.getObjController().getMap().get("player");
         Player player = (Player) playerList.get(0);
@@ -122,7 +122,7 @@ public class GamePanel extends JPanel implements Runnable{
             player.setmagicPowerCount(player.getmagicPowerCount() - 1);
             player.setbubblepower(player.getbubblepower() + 1);
         }
-    }
+    }*/
 
     public void jiuButtonActionPerformed(ActionEvent e){
         getFocus();
@@ -134,7 +134,7 @@ public class GamePanel extends JPanel implements Runnable{
             player.setNormalImg();
         }
     }
-    public void weiButton2ActionPerformed(ActionEvent e){
+    /*public void weiButton2ActionPerformed(ActionEvent e){
         getFocus();
         List<SuperObject> playerList = ObjectController.getObjController().getMap().get("player");
         Player player = (Player) playerList.get(1);
@@ -142,7 +142,7 @@ public class GamePanel extends JPanel implements Runnable{
             player.setmagicPowerCount(player.getmagicPowerCount() - 1);
             player.setbubblepower(player.getbubblepower() + 1);
         }
-    }
+    }*/
 
     public void jiuButton2ActionPerformed(ActionEvent e){
         getFocus();
@@ -198,18 +198,18 @@ public class GamePanel extends JPanel implements Runnable{
                 g.drawString("Hero", 1080, 100);
             }*/
             //g.drawString("泡泡数量:   "+String.valueOf(player.getBubbleNum()), 950, 180);
-            g.drawString("泡泡威力:   " + String.valueOf(player.getbubblepower()), 950, 210);
+            g.drawString("P1泡泡威力:   " + String.valueOf(player.getbubblepower()), 950, 210);
             g.setFont(new Font("宋体", Font.BOLD, 18));
             //g.drawString("数量:  "+String.valueOf(player.getMagicBubbleCount()), 1030, 350);
-            g.drawString("数量:  " + String.valueOf(player.getmagicPowerCount()), 1030, 430);
-            g.drawString("数量:  "+String.valueOf(player.getmagicSaveCount()), 1030, 510);
+            //g.drawString("数量:  " + String.valueOf(player.getmagicPowerCount()), 1030, 430);
+            g.drawString("P1数量:  "+String.valueOf(player.getmagicSaveCount()), 1030, 510);
 
             g.setFont(new Font("宋体", Font.BOLD, 24));
-            g.drawString("泡泡威力:   " + String.valueOf(player2.getbubblepower()), 950, 110);
+            g.drawString("P2泡泡威力:   " + String.valueOf(player2.getbubblepower()), 950, 110);
             g.setFont(new Font("宋体", Font.BOLD, 18));
             //g.drawString("数量:  "+String.valueOf(player.getMagicBubbleCount()), 1030, 350);
-            g.drawString("数量:  " + String.valueOf(player2.getmagicPowerCount()), 1030, 280);
-            g.drawString("数量:  "+String.valueOf(player2.getmagicSaveCount()), 1030, 360);
+            //g.drawString("数量:  " + String.valueOf(player2.getmagicPowerCount()), 1030, 280);
+            g.drawString("P2数量:  "+String.valueOf(player2.getmagicSaveCount()), 1030, 360);
 
             int gameTime = GameThread.getGameTime()/1000;
             int minute = gameTime / 60;
