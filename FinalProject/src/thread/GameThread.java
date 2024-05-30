@@ -133,28 +133,34 @@ public class GameThread extends Thread{
 
     private void gameResult(){
         List<SuperObject> playerList = ObjectController.getObjController().getMap().get("player");
-        int loser = -1;
+        int loser = 0;
         for(SuperObject so: playerList){
             if(((Player)so).isDead()){
-                loser = playerList.indexOf(so);
+                loser += playerList.indexOf(so) + 1;
             }
         }
-        if(loser != -1){
+        if(loser != 0 || gameTime <0){
             running = false;
             over = true;
             System.out.println("end");
-            OverPanel.getResultButton().setIcon(Resourceloader.getResourceloader().getimageInfo().get("win"));
-            if(loser == 0){
+            if(loser == 1){
+                OverPanel.getResultButton().setIcon(Resourceloader.getResourceloader().getimageInfo().get("win"));
                 ImageIcon icon = Resourceloader.getResourceloader().getimageInfo().get("player2");
                 ImageIcon r1 = Resourceloader.getResourceloader().resizeIcon(icon,800,800);
                 OverPanel.getwinnerlabel().setIcon(r1);
             }
-            else{
+            else if(loser == 2){
+                OverPanel.getResultButton().setIcon(Resourceloader.getResourceloader().getimageInfo().get("win"));
                 ImageIcon icon = Resourceloader.getResourceloader().getimageInfo().get("player1");
                 ImageIcon r1 = Resourceloader.getResourceloader().resizeIcon(icon,800,800);
                 OverPanel.getwinnerlabel().setIcon(r1);
             }
-            //OverPanel.getResultButton().setIcon(Resourceloader.getResourceloader().getimageInfo().get("fail"));
+            else{
+                ImageIcon icon = Resourceloader.getResourceloader().getimageInfo().get("tie");
+                ImageIcon r1 = Resourceloader.getResourceloader().resizeIcon(icon,1200,800);
+                OverPanel.getResultButton().setIcon(r1);
+                OverPanel.getResultButton().setBounds(0,0, 1200, 800);
+            }
         }
 
         /*if(survivalNum > 0 && gameTime <= 0){
