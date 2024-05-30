@@ -27,24 +27,26 @@ public class Player extends Character{
     private boolean dying = false;
     private int dyingTime;
     private boolean keepdying = false;
+    private int playerindex;
 
-    public Player(int x, int y, int width, int height, ImageIcon img,int keycontroller) {
+    public Player(int x, int y, int width, int height, ImageIcon img,int playerindex) {
         super(x, y, width, height);
         this.img = img;
         keyrelease = true;
         isShowing = true;
         this.keycontroller =  keycontroller;
         dyingTime = 5000;
+        this.playerindex = playerindex;
     }
 
-    public static Player createPlayer(int i, int j, List<String> playerInfo, int keycontroller){ // wasd -> 0, arrows -> 1
+    public static Player createPlayer(int i, int j, List<String> playerInfo, int playerindex){ // wasd -> 0, arrows -> 1
         int x = j*MapObject.PIXEL_X + GameMap.getBiasX();
         int y = i*MapObject.PIXEL_Y + GameMap.getBiasY();
         int w = MapObject.PIXEL_X;
         int h = MapObject.PIXEL_Y;
 
         HashMap<String, ImageIcon> imageInfo = Resourceloader.getResourceloader().getimageInfo();
-        return  new Player(x, y, w, h, imageInfo.get(playerInfo.get(0)), keycontroller); //+String.valueOf(StartPanel.playerIndex)
+        return  new Player(x, y, w, h, imageInfo.get(playerInfo.get(0)), playerindex); //+String.valueOf(StartPanel.playerIndex)
     }
 
     @Override
@@ -159,7 +161,12 @@ public class Player extends Character{
         if(dying) {
             if(!keepdying){
                 keepdying = true;
-                img = Resourceloader.getResourceloader().getimageInfo().get("player1dying");
+                if(playerindex == 0){
+                    img = Resourceloader.getResourceloader().getimageInfo().get("player1dying");
+                }
+                else{
+                    img = Resourceloader.getResourceloader().getimageInfo().get("player2dying");
+                }
                 Timer timer = new Timer();
                 TimerTask task = new TimerTask() {
                     @Override
@@ -188,6 +195,11 @@ public class Player extends Character{
     }
 
     public void setNormalImg(){
-        img = Resourceloader.getResourceloader().getimageInfo().get("player1dying");
+        if(playerindex == 0){
+            img = Resourceloader.getResourceloader().getimageInfo().get("player1");
+        }
+        else{
+            img = Resourceloader.getResourceloader().getimageInfo().get("player2");
+        }
     }
 }
