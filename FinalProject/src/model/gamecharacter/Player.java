@@ -29,7 +29,9 @@ public class Player extends Character{
     private int playerindex;
     private boolean moveable;
 
-    private boolean flashing;
+    private boolean supermode;
+    
+
 
     public Player(int x, int y, int width, int height, ImageIcon img, int playerindex) {
         super(x, y, width, height);
@@ -41,7 +43,7 @@ public class Player extends Character{
         magicPowerCount = 0;
         magicSaveCount =1;
         moveable = true;
-        flashing = false;
+        supermode = false;
     }
 
     public static Player createPlayer(int i, int j, List<String> playerInfo, int playerindex){ // wasd -> 0, arrows -> 1
@@ -148,22 +150,38 @@ public class Player extends Character{
                 moveable = false;
 
                 Timer timer = new Timer();
-                TimerTask task = new TimerTask() {
-                    @Override
-                    public void run() {
-                        
-                        if(dying && getmagicSaveCount() == 0){
+
+                if(getmagicSaveCount() == 0){
+                    TimerTask task = new TimerTask() {
+                        @Override
+                        public void run() {
                             dead = true;
-                        }else {
+
+                        }
+                    };
+                    timer.schedule(task, 5000);
+
+                }else if(getmagicSaveCount() > 0 ){
+                    TimerTask task = new TimerTask() {
+                        @Override
+                        public void run() {
                             setDying(false);
                             setNormalImg();
                             setmagicSaveCount(getmagicSaveCount() - 1);
+                            setSuperMode(true);
+
+                            Timer timer1 = new Timer();
+                            TimerTask taskSupermode = new TimerTask() {
+                                @Override
+                                public void run() {
+                                    setSuperMode(false);
+                                    setshowing(true);
+                                }
+                            };
+                            timer1.schedule(taskSupermode, 3000);
+                        
                         }
-                    }
-                };
-                if(getmagicSaveCount() == 0){
-                    timer.schedule(task, 5000);
-                }else{
+                    };
                     timer.schedule(task, 2000);
                 }
             }
@@ -174,6 +192,7 @@ public class Player extends Character{
             dyingTime = 5000;
             moveable = true;
         }
+
     }
     public void setshowing(boolean isShowing){
         this.isShowing = isShowing;
@@ -182,12 +201,12 @@ public class Player extends Character{
         return isShowing;
     }
 
-    public boolean  getflashing(){
-        return flashing;
+    public boolean  getSuperMode(){
+        return supermode;
     }
 
-    public void setflashing(boolean flashing){
-        this.flashing = flashing;
+    public void setSuperMode(boolean supermode){
+        this.supermode = supermode;
     }
     public boolean isDying(){
         return dying;
