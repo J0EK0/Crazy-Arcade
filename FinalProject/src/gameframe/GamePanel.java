@@ -1,31 +1,19 @@
 package gameframe;
 
-import controller.*;
-import java.awt.*;
 import controller.GameController;
 import controller.ObjectController;
-import main.StartGame;
-import model.gamecharacter.Character;
-import model.gamecharacter.Player;
-import model.gameobject.MapObject;
-import model.gameobject.SuperObject;
-import resourceloader.Resourceloader;
-//import Thread.GameKeyListener;
-import thread.GameThread;
-//import Thread.PlayGameMusic;
-
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.KeyListener;
-import java.security.PublicKey;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 import javax.swing.*;
+import model.gamecharacter.Player;
 import model.gameobject.SuperObject;
+import resourceloader.Resourceloader;
 import thread.GameKeyListener;
+import thread.GameThread;
 
 public class GamePanel extends JPanel implements Runnable{
     
@@ -170,7 +158,7 @@ public class GamePanel extends JPanel implements Runnable{
                 g.drawString("Hero", 1080, 100);
             }*/
             //g.drawString("泡泡数量:   "+String.valueOf(player.getBubbleNum()), 950, 180);
-            g.drawString("泡泡威力:   " + String.valueOf(player.getBubblePower()), 950, 210);
+            g.drawString("泡泡威力:   " + String.valueOf(player.getbubblepower()), 950, 210);
             g.setFont(new Font("宋体", Font.BOLD, 18));
             //g.drawString("数量:  "+String.valueOf(player.getMagicBubbleCount()), 1030, 350);
             g.drawString("数量:  " + String.valueOf(player.getmagicPowerCount()), 1030, 430);

@@ -29,12 +29,11 @@ public class Player extends Character{
     private boolean keepdying = false;
     private int playerindex;
 
-    public Player(int x, int y, int width, int height, ImageIcon img,int keycontroller) {
+    public Player(int x, int y, int width, int height, ImageIcon img,int playerindex) {
         super(x, y, width, height);
         this.img = img;
         keyrelease = true;
         isShowing = true;
-        this.keycontroller =  keycontroller;
         dyingTime = 5000;
         this.playerindex = playerindex;
     }
@@ -67,7 +66,7 @@ public class Player extends Character{
         if(!gamemap.isBubble(i,j)){
             List<SuperObject> bubble = ObjectController.getObjController().getMap().get("bubble");
             List<String> bubbleinfo = Resourceloader.getResourceloader().getMapObjectInfo().get("90");
-            bubble.add(MapBubble.createMapBubble(i, j, bubbleinfo, 1));
+            bubble.add(MapBubble.createMapBubble(i, j, bubbleinfo, bubblePower));
         }
     }
 
@@ -176,5 +175,13 @@ public class Player extends Character{
         else{
             img = Resourceloader.getResourceloader().getimageInfo().get("player2");
         }
+    }
+
+    public void setbubblepower(int power){
+        this.bubblePower = power;
+    }
+
+    public int getbubblepower(){
+        return this.bubblePower;
     }
 }
