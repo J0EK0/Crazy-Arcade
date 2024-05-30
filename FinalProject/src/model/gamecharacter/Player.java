@@ -29,6 +29,9 @@ public class Player extends Character{
     private int playerindex;
     private boolean moveable;
 
+    private boolean flashing;
+    private boolean flash;
+
     public Player(int x, int y, int width, int height, ImageIcon img, int playerindex) {
         super(x, y, width, height);
         this.img = img;
@@ -39,6 +42,7 @@ public class Player extends Character{
         magicPowerCount = 0;
         magicSaveCount =0;
         moveable = true;
+        flashing = false;
     }
 
     public static Player createPlayer(int i, int j, List<String> playerInfo, int playerindex){ // wasd -> 0, arrows -> 1
@@ -172,7 +176,20 @@ public class Player extends Character{
             moveable = true;
         }
     }
+    public void setshowing(boolean isShowing){
+        this.isShowing = isShowing;
+    }
+    public boolean getshowing(){
+        return isShowing;
+    }
 
+    public boolean  getflashing(){
+        return flashing;
+    }
+
+    public void setflashing(boolean flashing){
+        this.flashing = flashing;
+    }
     public boolean isDying(){
         return dying;
     }

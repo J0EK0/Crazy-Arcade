@@ -21,7 +21,7 @@ public class Character extends SuperObject{
         speed = 5;
         bubbleNum = 10;
         score = 0;
-        magicSaveCount = 0;
+        magicSaveCount = 1;
         magicPowerCount = 0;
         bubblePower = 1;
     }
