@@ -154,6 +154,10 @@ public class Player extends Character{
             }
             dyingTime = dyingTime - 20;
         }
+        else{
+            keepdying = false;
+            dyingTime = 5000;
+        }
     }
 
     public boolean isDying(){
