@@ -41,7 +41,7 @@ public class InitialPanel extends JPanel {
         playerIndex = 1;
         rl = Resourceloader.getResourceloader();
         ImageIcon originalIcon = rl.getimageInfo().get("startbtn");
-        ImageIcon resizedIcon = rl.resizeIcon(originalIcon, 240, 80); // 调整图像大小
+        ImageIcon resizedIcon = rl.resizeIcon(originalIcon, 400, 400); // 调整图像大小
         ImageIcon originalIcon2 = rl.getimageInfo().get("introduce");
         ImageIcon resizedIcon2 = rl.resizeIcon(originalIcon2, 240, 80);
         ImageIcon originalIcon3 = rl.getimageInfo().get("select");
@@ -99,7 +99,7 @@ public class InitialPanel extends JPanel {
         //this.add(selectButton);
         startButton = new JButton();
         startButton.setIcon(resizedIcon);
-        startButton.setBounds(width/6, height/2, 240, 80);
+        startButton.setBounds(400, 300, 400, 400);
         startButton.setBorderPainted(false);
         startButton.setFocusPainted(false);
         startButton.setContentAreaFilled(false);
