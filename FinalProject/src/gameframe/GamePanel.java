@@ -117,16 +117,15 @@ public class GamePanel extends JPanel implements Runnable{
         }*/
     }
 
-    public void jiuButtonActionPerformed(ActionEvent e){
+    public void jiuButtonActionPerformed(ActionEvent e){ // oh my god what a save
         getFocus();
         List<SuperObject> playerList = ObjectController.getObjController().getMap().get("player");
         Player player = (Player) playerList.get(0);
-        /*if(player.getMagicSaveCount()>0){
+        if(player.getMagicSaveCount()>0){
             player.setMagicSaveCount(player.getMagicSaveCount() - 1);
             player.setDying(false);
-            player.setSpeed(Character.INIT_SPEED);
             player.setNormalImg();
-        }*/
+        }
     }
 
     /*public void gameCtrlActionPerformed(ActionEvent e){

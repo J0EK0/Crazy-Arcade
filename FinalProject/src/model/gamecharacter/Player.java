@@ -29,6 +29,9 @@ public class Player extends Character{
     private boolean keepdying = false;
     private int playerindex;
 
+    private int magicSaveCount;
+    private int magicPowerCount;
+
     public Player(int x, int y, int width, int height, ImageIcon img, int playerindex) {
         super(x, y, width, height);
         this.img = img;
@@ -37,6 +40,8 @@ public class Player extends Character{
         this.keycontroller =  keycontroller;
         dyingTime = 5000;
         this.playerindex = playerindex;
+        magicPowerCount = 0;
+        magicSaveCount =0;
     }
 
     public static Player createPlayer(int i, int j, List<String> playerInfo, int playerindex){ // wasd -> 0, arrows -> 1
@@ -58,7 +63,6 @@ public class Player extends Character{
         //g.drawImage(img.getImage(), getx(), gety(),getx()+getw(), gety()+geth(), null);
 
     }
-    //collision Detect
 
     public void plantBubble(){
         int i = ObjectController.getPosIndex(getx(), gety()).get(0);
@@ -73,12 +77,14 @@ public class Player extends Character{
 
     //move
     public void act(int wasd){
+
         int tempx = getx();
         int tempy = gety();
 
         switch (wasd) {
             case ' ':
             case 77: //'m'
+                if(dying) break;
                 plantBubble();
                 break;
             case 87:
@@ -124,7 +130,9 @@ public class Player extends Character{
     public void setkeyrelease(boolean keyrelease){
         this.keyrelease = keyrelease;
     }
-    public boolean getmoveable(){ return keyrelease;}
+    public boolean getmoveable(){ 
+        return keyrelease;
+    }
 
     public void setDying(boolean dying){
         this.dying = dying;
@@ -154,6 +162,22 @@ public class Player extends Character{
             }
             dyingTime = dyingTime - 20;
         }
+    }
+    public void setNormalImg(){
+        System.out.println(" i have been here");
+    }
+
+    public void setMagicPowerCount(int count){
+        this.magicPowerCount = count;
+    }
+    public int getMagicPowerCount(){
+        return magicPowerCount;
+    }
+    public void setMagicSaveCount(int count){
+        this.magicSaveCount = count;
+    }
+    public int getMagicSaveCount(){
+        return magicSaveCount;
     }
 
     public boolean isDying(){
