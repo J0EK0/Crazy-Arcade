@@ -170,6 +170,7 @@ public void jiuButtonActionPerformed(ActionEvent e){ // oh my god what a save
         }
         if(map.get("player").size() > 0){
             Player player = (Player) map.get("player").get(0);
+            Player player2 = (Player) map.get("player").get(1);
             g.setFont(new Font("宋体", Font.BOLD, 24));
             /*if(InitialPanel.playerIndex == 1){
                 g.drawString("Duck", 1080 , 100);
