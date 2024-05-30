@@ -13,7 +13,7 @@ public class OverPanel extends JPanel {
     private ImageIcon winner;
     private int w;
     private int h;
-    private static JButton result = new JButton();
+    private static JLabel result = new JLabel();
     private JLabel label;
     private static JLabel winnerlabel = new JLabel();
     private JButton restart;
@@ -51,8 +51,6 @@ public class OverPanel extends JPanel {
         result.setBounds(0, 100, 550, 500);
         result.setHorizontalTextPosition(SwingConstants.CENTER);
         result.setVerticalTextPosition(SwingConstants.CENTER);
-        result.setBorderPainted(false);
-        result.setContentAreaFilled(false);
         result.setVisible(true);
 
         winnerlabel.setBounds(500, -50, 800, 800);
@@ -65,7 +63,7 @@ public class OverPanel extends JPanel {
         this.setOpaque(false);
     }
 
-    public static JButton getResultButton(){
+    public static JLabel getResultButton(){
         return result;
     }
     
