@@ -58,9 +58,9 @@ public class GamePanel extends JPanel implements Runnable{
 
          this.setLayout(null);
          //this.add(magicWei);
-         this.add(magicJiu);
+         //this.add(magicJiu);
          //this.add(magicWei2);
-         this.add(magicJiu2);
+         //this.add(magicJiu2);
     }
 
 public void jiuButtonActionPerformed(ActionEvent e){ // oh my god what a save
@@ -120,18 +120,18 @@ public void jiuButtonActionPerformed(ActionEvent e){ // oh my god what a save
         if(map.get("player").size() > 0){
             Player player = (Player) map.get("player").get(0);
             Player player2 = (Player) map.get("player").get(1);
-            g.setFont(new Font("宋体", Font.BOLD, 24));
 
+            g.setFont(new Font("宋体", Font.BOLD, 24));
             g.drawString("P1泡泡威力:   " + String.valueOf(player.getbubblepower()), 950, 210);
-            g.setFont(new Font("宋体", Font.BOLD, 18));
-            g.drawString("P1数量:  "+String.valueOf(player.getmagicSaveCount()), 1030, 510);
 
             g.setFont(new Font("宋体", Font.BOLD, 24));
-            g.drawString("P2泡泡威力:   " + String.valueOf(player2.getbubblepower()), 950, 260);
-            g.setFont(new Font("宋体", Font.BOLD, 18));
-            //g.drawString("数量:  "+String.valueOf(player.getMagicBubbleCount()), 1030, 350);
-            //g.drawString("数量:  " + String.valueOf(player2.getmagicPowerCount()), 1030, 280);
-            g.drawString("P2数量:  "+String.valueOf(player2.getmagicSaveCount()), 1030, 360);
+            g.drawString("P1数量:  "+String.valueOf(player.getmagicSaveCount()), 950, 260);
+
+            g.setFont(new Font("宋体", Font.BOLD, 24));
+            g.drawString("P2泡泡威力:   " + String.valueOf(player2.getbubblepower()), 950, 310);
+
+            g.setFont(new Font("宋体", Font.BOLD, 24));
+            g.drawString("P2数量:  "+String.valueOf(player2.getmagicSaveCount()), 950, 360);
 
             int gameTime = GameThread.getGameTime()/1000;
             int minute = gameTime / 60;
@@ -145,13 +145,7 @@ public void jiuButtonActionPerformed(ActionEvent e){ // oh my god what a save
             }
             g.setFont(new Font("Times New Roman", Font.BOLD, 36));
             g.drawString("Time: "+ min + ":" + sec, 950, 650);
-            /*if(player.isDying()){
-                g.setFont(new Font("Times New Roman", Font.BOLD, 24));
-                g.setColor(Color.red);
-                g.drawString("You are dying!!!", 950, 720);
-                g.drawString("Time Remaining: "+ String.valueOf(player.getDyingTime()/1000) + "s", 950, 760);
-                g.setColor(Color.BLACK);
-            }*/
+
         }
     }
 
