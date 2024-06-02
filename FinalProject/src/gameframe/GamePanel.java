@@ -61,7 +61,7 @@ public class GamePanel extends JPanel implements Runnable{
          ImageIcon jiuImg = Resourceloader.getResourceloader().getimageInfo().get("jiuming");
          jiuImg.setImage(jiuImg.getImage().getScaledInstance(70, 70, Image.SCALE_SMOOTH));
          magicJiu.setIcon(jiuImg);
-         magicJiu.setBounds(950, 470, 70, 70);
+         magicJiu.setBounds(950, 420, 70, 70);
          magicJiu.addActionListener(e -> jiuButtonActionPerformed(e));
 
          /*magicWei2 = new JButton();
@@ -202,14 +202,14 @@ public void jiuButtonActionPerformed(ActionEvent e){ // oh my god what a save
             g.setFont(new Font("宋体", Font.BOLD, 18));
             //g.drawString("数量:  "+String.valueOf(player.getMagicBubbleCount()), 1030, 350);
             //g.drawString("数量:  " + String.valueOf(player.getmagicPowerCount()), 1030, 430);
-            g.drawString("P1数量:  "+String.valueOf(player.getmagicSaveCount()), 1030, 510);
+            g.drawString("P1血量:  "+String.valueOf(player.getmagicSaveCount()), 1030, 360);
 
             g.setFont(new Font("宋体", Font.BOLD, 24));
-            g.drawString("P2泡泡威力:   " + String.valueOf(player2.getbubblepower()), 950, 110);
+            g.drawString("P2泡泡威力:   " + String.valueOf(player2.getbubblepower()), 950, 260);
             g.setFont(new Font("宋体", Font.BOLD, 18));
             //g.drawString("数量:  "+String.valueOf(player.getMagicBubbleCount()), 1030, 350);
             //g.drawString("数量:  " + String.valueOf(player2.getmagicPowerCount()), 1030, 280);
-            g.drawString("P2数量:  "+String.valueOf(player2.getmagicSaveCount()), 1030, 360);
+            g.drawString("P2血量:  "+String.valueOf(player2.getmagicSaveCount()), 1030, 460);
 
             int gameTime = GameThread.getGameTime()/1000;
             int minute = gameTime / 60;
