@@ -60,6 +60,7 @@ public class GameThread extends Thread{
                 playerExplode();
                 bubbleExplodeSerial();
                 gameResult();
+                playerSuperMode();
                 gameTime = gameTime - refreshTime;
             }
             try{
@@ -122,11 +123,25 @@ public class GameThread extends Thread{
             for(int j = 0; j < explodeList.size(); j++){
                 if(explodeList.get(j).collision(playerList.get(i))){
                     Player player = (Player) playerList.get(i);
-                    player.setDying(true);
+                    if( player.getSuperMode()) ;
+                    else if( !player.getSuperMode()) player.setDying(true);
                 }
             }
         }
     }
+
+    private void playerSuperMode(){ 
+        List<SuperObject> playerList = ObjectController.getObjController().getMap().get("player");
+        
+        for(int i = 0; i < playerList.size(); i++){
+            Player player = (Player) playerList.get(i); 
+            if(player.getSuperMode() &&( gameTime%100 == 00 ) ){
+                if(player.getshowing()) player.setshowing(false);
+                else player.setshowing(true);
+            }
+        }
+    }
+
     public static int getGameTime(){
         return gameTime;
     }

@@ -23,19 +23,27 @@ public class Player extends Character{
     int moveX = 0;
     int moveY = 0;
     private boolean keyrelease;
-    private int keycontroller;
     private boolean dying = false;
     private int dyingTime;
     private boolean keepdying = false;
     private int playerindex;
+    private boolean moveable;
 
-    public Player(int x, int y, int width, int height, ImageIcon img,int playerindex) {
+    private boolean supermode;
+    
+
+
+    public Player(int x, int y, int width, int height, ImageIcon img, int playerindex) {
         super(x, y, width, height);
         this.img = img;
         keyrelease = true;
         isShowing = true;
         dyingTime = 5000;
         this.playerindex = playerindex;
+        magicPowerCount = 0;
+        magicSaveCount =1;
+        moveable = true;
+        supermode = false;
     }
 
     public static Player createPlayer(int i, int j, List<String> playerInfo, int playerindex){ // wasd -> 0, arrows -> 1
@@ -57,7 +65,6 @@ public class Player extends Character{
         //g.drawImage(img.getImage(), getx(), gety(),getx()+getw(), gety()+geth(), null);
 
     }
-    //collision Detect
 
     public void plantBubble(){
         int i = ObjectController.getPosIndex(getx(), gety()).get(0);
@@ -66,19 +73,21 @@ public class Player extends Character{
         if(!gamemap.isBubble(i,j)){
             List<SuperObject> bubble = ObjectController.getObjController().getMap().get("bubble");
             List<String> bubbleinfo = Resourceloader.getResourceloader().getMapObjectInfo().get("90");
-            bubble.add(MapBubble.createMapBubble(i, j, bubbleinfo, bubblePower));
+            bubble.add(MapBubble.createMapBubble(i, j, bubbleinfo, getbubblepower()));
         }
     }
 
     //move
     public void act(int wasd){
+        if( !moveable ) return;
+
         int tempx = getx();
         int tempy = gety();
 
         switch (wasd) {
             case ' ':
             case 77: //'m'
-                if( dying ) return;
+                if(dying) break;
                 plantBubble();
                 break;
             case 87:
@@ -124,8 +133,9 @@ public class Player extends Character{
     public void setkeyrelease(boolean keyrelease){
         this.keyrelease = keyrelease;
     }
-    
-    public boolean getmoveable(){ return keyrelease;}
+    public boolean getmoveable(){ 
+        return keyrelease;
+    }
 
     public void setDying(boolean dying){
         this.dying = dying;
@@ -136,31 +146,68 @@ public class Player extends Character{
         if(dying) {
             if(!keepdying){
                 keepdying = true;
-                if(playerindex == 0){
-                    img = Resourceloader.getResourceloader().getimageInfo().get("player1dying");
-                }
-                else{
-                    img = Resourceloader.getResourceloader().getimageInfo().get("player2dying");
-                }
+                img = Resourceloader.getResourceloader().getimageInfo().get("player"+String.valueOf(playerindex+1)+"dying");
+                moveable = false;
+
                 Timer timer = new Timer();
-                TimerTask task = new TimerTask() {
-                    @Override
-                    public void run() {
-                        if(dying){
+
+                if(getmagicSaveCount() == 0){
+                    TimerTask task = new TimerTask() {
+                        @Override
+                        public void run() {
                             dead = true;
+
                         }
-                    }
-                };
-                timer.schedule(task, 5000);
+                    };
+                    timer.schedule(task, 5000);
+
+                }else if(getmagicSaveCount() > 0 ){
+                    TimerTask task = new TimerTask() {
+                        @Override
+                        public void run() {
+                            setDying(false);
+                            setNormalImg();
+                            setmagicSaveCount(getmagicSaveCount() - 1);
+                            setSuperMode(true);
+
+                            Timer timer1 = new Timer();
+                            TimerTask taskSupermode = new TimerTask() {
+                                @Override
+                                public void run() {
+                                    setSuperMode(false);
+                                    setshowing(true);
+                                }
+                            };
+                            timer1.schedule(taskSupermode, 3000);
+                        
+                        }
+                    };
+                    timer.schedule(task, 2000);
+                }
             }
             dyingTime = dyingTime - 20;
         }
         else{
             keepdying = false;
             dyingTime = 5000;
+            moveable = true;
         }
+
+    }
+    public void setshowing(boolean isShowing){
+        this.isShowing = isShowing;
+    }
+    public boolean getshowing(){
+        return isShowing;
     }
 
+    public boolean  getSuperMode(){
+        return supermode;
+    }
+
+    public void setSuperMode(boolean supermode){
+        this.supermode = supermode;
+    }
     public boolean isDying(){
         return dying;
     }
@@ -174,12 +221,7 @@ public class Player extends Character{
     }
 
     public void setNormalImg(){
-        if(playerindex == 0){
-            img = Resourceloader.getResourceloader().getimageInfo().get("player1");
-        }
-        else{
-            img = Resourceloader.getResourceloader().getimageInfo().get("player2");
-        }
+        img = Resourceloader.getResourceloader().getimageInfo().get("player"+String.valueOf(playerindex+1));
     }
 
     public void setbubblepower(int power){
