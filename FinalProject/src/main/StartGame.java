@@ -24,11 +24,10 @@ public class StartGame {
     }
 
     public static void changePanel(String panelname){
-
-        if(GameController.isGameRunning() == false){
+        
+        if(panelname.equals("game")){
             GameController.setGameRunning(true);
-        }
-        else{
+        }else {
             GameController.setGameRunning(false);
         }
         gameFrame.changePanel(panelname);

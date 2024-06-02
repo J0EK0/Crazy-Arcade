@@ -27,6 +27,7 @@ public class GameThread extends Thread{
     public void run() {
         while (!over){
             running = true;
+            over = false;
             loadMap();
             runGame();
             gameClean();
@@ -40,9 +41,9 @@ public class GameThread extends Thread{
     }
 
     private void runGame(){
-        gameTime = 120*1000;
+        gameTime = 2000;//120*1000;
+        System.out.println("runGame "+ gameTime + refreshTime);
         while (running){
-            //System.out.println("runGame");
             if(GameController.isGameRunning()){
                 HashMap<String, List<SuperObject>> map = ObjectController.getObjController().getMap();
                 Set<String> objSet = map.keySet();
@@ -72,8 +73,7 @@ public class GameThread extends Thread{
     }
 
     public void gameClean(){
-        //GamePanel.getPlaymusic().stops();
-        //ObjectController.getObjController().gameClean();
+        ObjectController.getObjController().gameClean();
     }
 
     private void ExplodeFragility(){
@@ -142,19 +142,16 @@ public class GameThread extends Thread{
         }
     }
 
-    public static int getGameTime(){
-        return gameTime;
-    }
-
     private void gameResult(){
         List<SuperObject> playerList = ObjectController.getObjController().getMap().get("player");
         int loser = 0;
         for(SuperObject so: playerList){
+            
             if(((Player)so).isDead()){
                 loser += playerList.indexOf(so) + 1;
             }
         }
-        if(loser != 0 || gameTime <0){
+        if(loser != 0 || gameTime <=0){
             running = false;
             over = true;
             System.out.println("end");
@@ -177,12 +174,11 @@ public class GameThread extends Thread{
                 OverPanel.getResultButton().setBounds(0,0, 1200, 800);
             }
         }
+        
+    }
 
-        /*if(survivalNum > 0 && gameTime <= 0){
-            running = false;
-            over = true;
-            OverPanel.getResultButton().setIcon(Resourceloader.getResourceloader().getImageInfo().get("win"));
-        }*/
+    public static int getGameTime(){
+        return gameTime;
     }
 
     public void setRunning(boolean status){

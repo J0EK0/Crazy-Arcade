@@ -19,28 +19,19 @@ public class GamePanel extends JPanel implements Runnable{
     
     private boolean running;
     private GameKeyListener keyListener;
-    //private JButton magicWei;
     private JButton magicJiu;
-    //private JButton magicWei2;
     private JButton magicJiu2;
     public GamePanel() {
         super();
         running = true;
-       // keyListener = new GameKeyListener();
+
         this.setFocusable(true);
-        //this.addGameKeyListener();
-       // System.out.println(playmusic.getState());
-       /*  if(playmusic.getState() == Thread.State.NEW){
-            playmusic.start();
-        }else {
-            playmusic.continues();
-        }*/
         init();
         running = true;
 
         keyListener = new GameKeyListener();
         this.addGameKeyListener();
-        System.err.println("start game key listener");
+        //System.err.println("start game key listener");
 
     }
 
@@ -50,12 +41,6 @@ public class GamePanel extends JPanel implements Runnable{
     }
 
     private void  init(){
-         /*magicWei = new JButton();
-         ImageIcon weiImg = Resourceloader.getResourceloader().getimageInfo().get("weili");
-         weiImg.setImage(weiImg.getImage().getScaledInstance(70, 70, Image.SCALE_SMOOTH));
-         magicWei.setIcon(weiImg);
-         magicWei.setBounds(950, 390, 70, 70);*/
-         //magicWei.addActionListener(e -> weiButtonActionPerformed(e));
 
          magicJiu = new JButton();
          ImageIcon jiuImg = Resourceloader.getResourceloader().getimageInfo().get("jiuming");
@@ -63,13 +48,6 @@ public class GamePanel extends JPanel implements Runnable{
          magicJiu.setIcon(jiuImg);
          magicJiu.setBounds(950, 470, 70, 70);
          magicJiu.addActionListener(e -> jiuButtonActionPerformed(e));
-
-         /*magicWei2 = new JButton();
-         ImageIcon weiImg2 = Resourceloader.getResourceloader().getimageInfo().get("weili");
-         weiImg2.setImage(weiImg2.getImage().getScaledInstance(70, 70, Image.SCALE_SMOOTH));
-         magicWei2.setIcon(weiImg2);
-         magicWei2.setBounds(950, 240, 70, 70);*/
-         //magicWei2.addActionListener(e -> weiButton2ActionPerformed(e));
 
          magicJiu2 = new JButton();
          ImageIcon jiuImg2 = Resourceloader.getResourceloader().getimageInfo().get("jiuming");
@@ -85,45 +63,6 @@ public class GamePanel extends JPanel implements Runnable{
          this.add(magicJiu2);
     }
 
-    /*public void stopMusicActionPerformed(ActionEvent e){
-        getFocus();
-        playmusic.stops();
-    }
-    public void continueMusicActionPerformed(ActionEvent e){
-          getFocus();
-          playmusic.continues();
-    }
-
-    public void backMainBtnActionPerformed(ActionEvent e){
-        getFocus();
-        playmusic.stops();
-        GameFrame.getGameThread().setOver(true);
-        GameFrame.getGameThread().setRunning(false);
-        running = false;
-        ObjectController.getObjController().gameClean();
-        GameController.setGameRunning(false);
-    }
-
-    public void paoButtonActionPerformed(ActionEvent e){
-        getFocus();
-        List<SuperObject> playerList = ObjectController.getObjController().getMap().get("player");
-        Player player = (Player) playerList.get(0);
-        if(player.getMagicBubbleCount() > 0 && !player.isDying()){
-            player.setMagicBubbleCount(player.getMagicBubbleCount() - 1);
-            player.setBubbleNum(player.getBubbleNum() + 1);
-        }
-    }
-    */
-    /*public void weiButtonActionPerformed(ActionEvent e){
-        getFocus();
-        List<SuperObject> playerList = ObjectController.getObjController().getMap().get("player");
-        Player player = (Player) playerList.get(0);
-        if(player.getmagicPowerCount() > 0 && !player.isDying()){
-            player.setmagicPowerCount(player.getmagicPowerCount() - 1);
-            player.setbubblepower(player.getbubblepower() + 1);
-        }
-    }*/
-
 public void jiuButtonActionPerformed(ActionEvent e){ // oh my god what a save
         getFocus();
         List<SuperObject> playerList = ObjectController.getObjController().getMap().get("player");
@@ -134,15 +73,6 @@ public void jiuButtonActionPerformed(ActionEvent e){ // oh my god what a save
             player.setNormalImg();
         }
     }
-    /*public void weiButton2ActionPerformed(ActionEvent e){
-        getFocus();
-        List<SuperObject> playerList = ObjectController.getObjController().getMap().get("player");
-        Player player = (Player) playerList.get(1);
-        if(player.getmagicPowerCount() > 0 && !player.isDying()){
-            player.setmagicPowerCount(player.getmagicPowerCount() - 1);
-            player.setbubblepower(player.getbubblepower() + 1);
-        }
-    }*/
 
     public void jiuButton2ActionPerformed(ActionEvent e){
         getFocus();
@@ -151,7 +81,6 @@ public void jiuButtonActionPerformed(ActionEvent e){ // oh my god what a save
         if(player.getmagicSaveCount()>0){
             player.setmagicSaveCount(player.getmagicSaveCount() - 1);
             player.setDying(false);
-            //player.setSpeed(Character.INIT_SPEED);
             player.setNormalImg();
         }
     }
@@ -192,23 +121,14 @@ public void jiuButtonActionPerformed(ActionEvent e){ // oh my god what a save
             Player player = (Player) map.get("player").get(0);
             Player player2 = (Player) map.get("player").get(1);
             g.setFont(new Font("宋体", Font.BOLD, 24));
-            /*if(InitialPanel.playerIndex == 1){
-                g.drawString("Duck", 1080 , 100);
-            }else {
-                g.drawString("Hero", 1080, 100);
-            }*/
-            //g.drawString("泡泡数量:   "+String.valueOf(player.getBubbleNum()), 950, 180);
+
             g.drawString("P1泡泡威力:   " + String.valueOf(player.getbubblepower()), 950, 210);
             g.setFont(new Font("宋体", Font.BOLD, 18));
-            //g.drawString("数量:  "+String.valueOf(player.getMagicBubbleCount()), 1030, 350);
-            //g.drawString("数量:  " + String.valueOf(player.getmagicPowerCount()), 1030, 430);
             g.drawString("P1数量:  "+String.valueOf(player.getmagicSaveCount()), 1030, 510);
 
             g.setFont(new Font("宋体", Font.BOLD, 24));
             g.drawString("P2泡泡威力:   " + String.valueOf(player2.getbubblepower()), 950, 110);
             g.setFont(new Font("宋体", Font.BOLD, 18));
-            //g.drawString("数量:  "+String.valueOf(player.getMagicBubbleCount()), 1030, 350);
-            //g.drawString("数量:  " + String.valueOf(player2.getmagicPowerCount()), 1030, 280);
             g.drawString("P2数量:  "+String.valueOf(player2.getmagicSaveCount()), 1030, 360);
 
             int gameTime = GameThread.getGameTime()/1000;

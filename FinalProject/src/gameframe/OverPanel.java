@@ -56,9 +56,9 @@ public class OverPanel extends JPanel {
         winnerlabel.setBounds(500, -50, 800, 800);
         winnerlabel.setVisible(true);
 
+        this.add(restart);
         this.add(winnerlabel);
         this.add(result);
-        //this.add(label);
         this.setVisible(true);
         this.setOpaque(false);
     }
