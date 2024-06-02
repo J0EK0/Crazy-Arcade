@@ -41,8 +41,8 @@ public class GameThread extends Thread{
     }
 
     private void runGame(){
-        gameTime = 2000;//120*1000;
-        System.out.println("runGame "+ gameTime + refreshTime);
+        gameTime = 120*1000;
+        //System.out.println("runGame "+ gameTime + refreshTime);
         while (running){
             if(GameController.isGameRunning()){
                 HashMap<String, List<SuperObject>> map = ObjectController.getObjController().getMap();
