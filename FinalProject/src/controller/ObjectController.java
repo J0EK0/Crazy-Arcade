@@ -82,7 +82,7 @@ public class ObjectController {
     }
 
 
-    /*public void gameClean(){
+    public void gameClean(){
         ObjectController.getObjController().getMap().get("player").clear();
         ObjectController.getObjController().getMap().get("floor").clear();
         ObjectController.getObjController().getMap().get("obstacle").clear();
@@ -90,5 +90,5 @@ public class ObjectController {
         ObjectController.getObjController().getMap().get("gameprops").clear();
         ObjectController.getObjController().getMap().get("bubble").clear();
         ObjectController.getObjController().getMap().get("bubbleExplode").clear();
-    }*/
+    }
 }
