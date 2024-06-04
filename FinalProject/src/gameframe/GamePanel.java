@@ -118,16 +118,16 @@ public void jiuButtonActionPerformed(ActionEvent e){ // oh my god what a save
             Player player2 = (Player) map.get("player").get(1);
 
             g.setFont(new Font("宋体", Font.BOLD, 24));
-            g.drawString("P1泡泡威力:   " + String.valueOf(player.getbubblepower()), 950, 210);
+            g.drawString("P1泡泡威力:  " + String.valueOf(player.getbubblepower()), 950, 210);
 
             g.setFont(new Font("宋体", Font.BOLD, 24));
             g.drawString("P1生命数量:  "+String.valueOf(player.getmagicSaveCount()), 950, 260);
 
             g.setFont(new Font("宋体", Font.BOLD, 24));
-            g.drawString("P2泡泡威力:   " + String.valueOf(player2.getbubblepower()), 950, 310);
+            g.drawString("P2泡泡威力:  " + String.valueOf(player2.getbubblepower()), 950, 360);
 
             g.setFont(new Font("宋体", Font.BOLD, 24));
-            g.drawString("P2生命数量:  "+String.valueOf(player2.getmagicSaveCount()), 950, 360);
+            g.drawString("P2生命数量:  "+String.valueOf(player2.getmagicSaveCount()), 950, 410);
 
             int gameTime = GameThread.getGameTime()/1000;
             int minute = gameTime / 60;
