@@ -1,2 +1,2 @@
-# nckucise_java_final: Crazy Arcade
+# Crazy Arcade
 A Crazy Arcade game developed in Java.
